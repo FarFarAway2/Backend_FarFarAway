@@ -5,15 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.UserRoleDAO;
-import com.example.demo.dto.user_role;
+import com.example.demo.dao.IUserRoleDAO;
+import com.example.demo.dto.UserRole;
+import com.example.demo.dto.Users;
 
 @Service
 public class UserRoleService {
 	@Autowired
-	UserRoleDAO userRoleDAO;
+	IUserRoleDAO userRoleDAO;
 
-	public List<UserRoles> listarUserRoles() {
+	public List<UserRole> listarUserRoles() {
 		return userRoleDAO.findAll();
 	}
 
@@ -21,7 +22,7 @@ public class UserRoleService {
 		return userRoleDAO.save(userRole);
 	}
 
-	public UserRole userRoleXID(Long id) {
+	public UserRole userRoleXID(Users id) {
 		return userRoleDAO.findById(id).get();
 	}
 
@@ -29,7 +30,7 @@ public class UserRoleService {
 		return userRoleDAO.save(userRole);
 	}
 
-	public void eliminarUserRole(int id) {
+	public void eliminarUserRole(Users id) {
 		userRoleDAO.deleteById(id);
 	}
 }

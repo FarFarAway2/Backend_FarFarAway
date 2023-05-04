@@ -5,31 +5,31 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.UsersDAO;
-import com.example.demo.dto.users;
+import com.example.demo.dao.IUsersDAO;
+import com.example.demo.dto.Users;
 
 @Service
 public class UsersService {
 	@Autowired
-	UsersDAO usersDAO;
+	IUsersDAO UsersDAO;
 
 	public List<Users> listarUsers() {
-		return usersDAO.findAll();
+		return UsersDAO.findAll();
 	}
 
-	public Users guardarUsers(Users users) {
-		return usersDAO.save(users);
+	public Users guardarUsers(Users Users) {
+		return UsersDAO.save(Users);
 	}
 
-	public Users usersXID(Long id) {
-		return usersDAO.findById(id).get();
+	public Users UsersXID(Long id) {
+		return UsersDAO.findById(id).get();
 	}
 
-	public Users actualizarUsers(Users users) {
-		return usersDAO.save(users);
+	public Users actualizarUsers(Users Users) {
+		return UsersDAO.save(Users);
 	}
 
-	public void eliminarUsers(int id) {
-		usersDAO.deleteById(id);
+	public void eliminarUsers(Long id) {
+		UsersDAO.deleteById(id);
 	}
 }

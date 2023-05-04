@@ -5,31 +5,31 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.RolesDAO;
-import com.example.demo.dto.roles;
+import com.example.demo.dao.IRolesDAO;
+import com.example.demo.dto.Roles;
 
 @Service
 public class RolesService {
 	@Autowired
-	RolesDAO rolesDAO;
+	IRolesDAO RolesDAO;
 
 	public List<Roles> listarRoles() {
-		return rolesDAO.findAll();
+		return RolesDAO.findAll();
 	}
 
-	public Roles guardarRoles(Roles roles) {
-		return rolesDAO.save(roles);
+	public Roles guardarRoles(Roles Roles) {
+		return RolesDAO.save(Roles);
 	}
 
-	public Roles rolesXID(Long id) {
-		return rolesDAO.findById(id).get();
+	public Roles RolesXID(Long id) {
+		return RolesDAO.findById(id).get();
 	}
 
-	public Roles actualizarRoles(Roles roles) {
-		return rolesDAO.save(roles);
+	public Roles actualizarRoles(Roles Roles) {
+		return RolesDAO.save(Roles);
 	}
 
-	public void eliminarRoles(int id) {
-		rolesDAO.deleteById(id);
+	public void eliminarRoles(Long id) {
+		RolesDAO.deleteById(id);
 	}
 }

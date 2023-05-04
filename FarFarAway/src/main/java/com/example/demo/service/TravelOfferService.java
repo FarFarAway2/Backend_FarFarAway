@@ -1,16 +1,19 @@
 package com.example.demo.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.TravelOfferDAO;
-import com.example.demo.dto.travel_offer;
+import com.example.demo.dao.ITravelOfferDAO;
+import com.example.demo.dto.TravelOffer;
 
 @Service
 public class TravelOfferService {
 	@Autowired
-	TravelOfferDAO travelOfferDAO;
+	ITravelOfferDAO travelOfferDAO;
 
-	public List<TravelOffers> listarTravelOffers() {
+	public List<TravelOffer> listarTravelOffers() {
 		return travelOfferDAO.findAll();
 	}
 
@@ -26,7 +29,7 @@ public class TravelOfferService {
 		return travelOfferDAO.save(travelOffer);
 	}
 
-	public void eliminarTravelOffer(int id) {
+	public void eliminarTravelOffer(Long id) {
 		travelOfferDAO.deleteById(id);
 	}
 }

@@ -14,8 +14,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "users")
-public class users {
+@Table(name = "Users")
+public class Users {
 
 	// Attributes
 	@Id
@@ -26,21 +26,21 @@ public class users {
 	phone_number, fiscal_name, company_cif ;
 
 
-	@OneToMany(mappedBy = "users")
-	private List<user_role> user_rol;
-	private List<hotel_offer> hotel_off;
-	private List<travel_offer> travel_off;
-	private List<hotel_manage> hotel_man;
-	private List<travel_manage> travel_man;
-	private List<hotel_book> hotel_book;
-	private List<travel_book> travel_book;
+	@OneToMany(mappedBy = "Users")
+	private List<UserRole> user_rol;
+	private List<HotelOffer> hotel_off;
+	private List<TravelOffer> travel_off;
+	private List<HotelManage> hotel_man;
+	private List<TravelManage> travel_man;
+	private List<HotelBook> HotelBook;
+	private List<TravelBook> TravelBook;
 	
 
 	// Constructors
-	public users() {
+	public Users() {
 	}
 
-	public users(Long id_user,String user_password,String user_name,String email,String surname,
+	public Users(Long id_user,String user_password,String user_name,String email,String surname,
 			String phone_number,String fisical_name,String company_cif,Long age) {
 		this.id_user=id_user;
 		this.age= age;
@@ -111,72 +111,72 @@ public class users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user_role")
-	public List<user_role> getUser_rol() {
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "UserRole")
+	public List<UserRole> getUser_rol() {
 		return user_rol;
 	}
 
 	
-	public void setUser_rol(List<user_role> user_rol) {
+	public void setUser_rol(List<UserRole> user_rol) {
 		this.user_rol = user_rol;
 	}
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel_offer")
-	public List<hotel_offer> getHotel_off() {
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelOffer")
+	public List<HotelOffer> getHotel_off() {
 		return hotel_off;
 	}
 	
-	public void setHotel_off(List<hotel_offer> hotel_off) {
+	public void setHotel_off(List<HotelOffer> hotel_off) {
 		this.hotel_off = hotel_off;
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "travel_offer")
-	public List<travel_offer> getTravel_off() {
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelOffer")
+	public List<TravelOffer> getTravel_off() {
 		return travel_off;
 	}
 
-	public void setTravel_off(List<travel_offer> travel_off) {
+	public void setTravel_off(List<TravelOffer> travel_off) {
 		this.travel_off = travel_off;
 	}
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel_manage")
-	public List<hotel_manage> getHotel_man() {
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelManage")
+	public List<HotelManage> getHotel_man() {
 		return hotel_man;
 	}
 
-	public void setHotel_man(List<hotel_manage> hotel_man) {
+	public void setHotel_man(List<HotelManage> hotel_man) {
 		this.hotel_man = hotel_man;
 	}
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "travel_manage")
-	public List<travel_manage> getTravel_man() {
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelManage")
+	public List<TravelManage> getTravel_man() {
 		return travel_man;
 	}
 
-	public void setTravel_man(List<travel_manage> travel_man) {
+	public void setTravel_man(List<TravelManage> travel_man) {
 		this.travel_man = travel_man;
 	}
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel_book")
-	public List<hotel_book> getHotel_book() {
-		return hotel_book;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelBook")
+	public List<HotelBook> getHotel_book() {
+		return HotelBook;
 	}
 
-	public void setHotel_book(List<hotel_book> hotel_book) {
-		this.hotel_book = hotel_book;
+	public void setHotel_book(List<HotelBook> HotelBook) {
+		this.HotelBook = HotelBook;
 	}
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "travel_book")
-	public List<travel_book> getTravel_book() {
-		return travel_book;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelBook")
+	public List<TravelBook> getTravel_book() {
+		return TravelBook;
 	}
 
-	public void setTravel_book(List<travel_book> travel_book) {
-		this.travel_book = travel_book;
+	public void setTravel_book(List<TravelBook> TravelBook) {
+		this.TravelBook = TravelBook;
 	}
 
 	public void setEmail(String email) {

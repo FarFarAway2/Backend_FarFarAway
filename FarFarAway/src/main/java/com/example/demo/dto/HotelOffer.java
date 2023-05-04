@@ -12,7 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
-public class hotel_offer {
+public class HotelOffer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,22 +22,22 @@ public class hotel_offer {
 	,title;
 	
 	
-	@OneToMany(mappedBy = "hotel_offer")
-	private List<hotel_manage> hotel_man;
-	private List<travel_manage> travel_man;
-	private List<hotel_book> hotel_book;
-	private List<travel_book> travel_book;
+	@OneToMany(mappedBy = "HotelOffer")
+	private List<HotelManage> hotel_man;
+	private List<TravelManage> travel_man;
+	private List<HotelBook> HotelBook;
+	private List<TravelBook> TravelBook;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_user")
-	private users id_user;
+	private Users id_user;
 	
-	public hotel_offer()
+	public HotelOffer()
 	{
 		
 	}
-	public hotel_offer(Long id_travel,Long price,String image, String longitude,String latitude,String hotel_name, 
-	String expire_date,String location,String title, users id_user)
+	public HotelOffer(Long id_travel,Long price,String image, String longitude,String latitude,String hotel_name, 
+	String expire_date,String location,String title, Users id_user)
 	{
 		this.image=image;
 		this.longitude=longitude;
@@ -112,36 +112,36 @@ public class hotel_offer {
 	}
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel_manage")
-	public List<hotel_manage> getHotel_man() {
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelManage")
+	public List<HotelManage> getHotel_man() {
 		return hotel_man;
 	}
-	public void setHotel_man(List<hotel_manage> hotel_man) {
+	public void setHotel_man(List<HotelManage> hotel_man) {
 		this.hotel_man = hotel_man;
 	}
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "travel_manage")
-	public List<travel_manage> getTravel_man() {
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelManage")
+	public List<TravelManage> getTravel_man() {
 		return travel_man;
 	}
-	public void setTravel_man(List<travel_manage> travel_man) {
+	public void setTravel_man(List<TravelManage> travel_man) {
 		this.travel_man = travel_man;
 	}
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel_book")
-	public List<hotel_book> getHotel_book() {
-		return hotel_book;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelBook")
+	public List<HotelBook> getHotel_book() {
+		return HotelBook;
 	}
-	public void setHotel_book(List<hotel_book> hotel_book) {
-		this.hotel_book = hotel_book;
+	public void setHotel_book(List<HotelBook> HotelBook) {
+		this.HotelBook = HotelBook;
 	}
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "travel_book")
-	public List<travel_book> getTravel_book() {
-		return travel_book;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelBook")
+	public List<TravelBook> getTravel_book() {
+		return TravelBook;
 	}
-	public void setTravel_book(List<travel_book> travel_book) {
-		this.travel_book = travel_book;
+	public void setTravel_book(List<TravelBook> TravelBook) {
+		this.TravelBook = TravelBook;
 	}
 	
 }

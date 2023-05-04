@@ -5,13 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.HotelManageDAO;
-import com.example.demo.dto.hotel_manage;
+import com.example.demo.dao.IHotelManageDAO;
+import com.example.demo.dto.HotelManage;
+import com.example.demo.dto.Users;
 
 @Service
 public class HotelManageService {
 	@Autowired
-	HotelManageDAO hotelManageDAO;
+	IHotelManageDAO hotelManageDAO;
 
 	public List<HotelManage> listarHotelManage() {
 		return hotelManageDAO.findAll();
@@ -21,7 +22,7 @@ public class HotelManageService {
 		return hotelManageDAO.save(hotelManage);
 	}
 
-	public HotelManage hotelManageXID(Long id) {
+	public HotelManage hotelManageXID(Users id) {
 		return hotelManageDAO.findById(id).get();
 	}
 
@@ -29,7 +30,7 @@ public class HotelManageService {
 		return hotelManageDAO.save(hotelManage);
 	}
 
-	public void eliminarHotelManage(int id) {
+	public void eliminarHotelManage(Users id) {
 		hotelManageDAO.deleteById(id);
 	}
 }

@@ -5,15 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.HotelBookDAO;
-import com.example.demo.dto.hotel_book;
+import com.example.demo.dao.IHotelBookDAO;
+import com.example.demo.dto.HotelBook;
+import com.example.demo.dto.Users;
 
 @Service
 public class HotelBookService {
 	@Autowired
-	HotelBookDAO hotelBookDAO;
+	IHotelBookDAO hotelBookDAO;
 
-	public List<HotelBooks> listarHotelBooks() {
+	public List<HotelBook> listarHotelBooks() {
 		return hotelBookDAO.findAll();
 	}
 
@@ -21,7 +22,7 @@ public class HotelBookService {
 		return hotelBookDAO.save(hotelBook);
 	}
 
-	public HotelBook hotelBookXID(Long id) {
+	public HotelBook hotelBookXID(Users id) {
 		return hotelBookDAO.findById(id).get();
 	}
 
@@ -29,7 +30,7 @@ public class HotelBookService {
 		return hotelBookDAO.save(hotelBook);
 	}
 
-	public void eliminarHotelBook(int id) {
+	public void eliminarHotelBook(Users id) {
 		hotelBookDAO.deleteById(id);
 	}
 }

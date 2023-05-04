@@ -9,42 +9,42 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "hotel_book")
-public class hotel_book {
+@Table(name = "TravelManage")
+public class TravelManage {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	@ManyToOne
 	@JoinColumn(name = "id_user")
-	private users id_user;
+	private Users id_user;
 
 	@ManyToOne
-	@JoinColumn(name = "id_hotel")
-	private hotel_offer id_hotel;
+	@JoinColumn(name = "id_travel")
+	private TravelOffer id_travel;
 
-	public hotel_book() {
+	public TravelManage() {
 		
 	}
-	public hotel_book(users id_user, hotel_offer id_hotel)
+	public TravelManage(Users id_user, TravelOffer id_travel)
 	{
-		this.id_hotel=id_hotel;
+		this.id_travel=id_travel;
 		this.id_user=id_user;
 	}
 
-	public users getId_user() {
+	public Users getId_user() {
 		return id_user;
 	}
 
-	public void setId_user(users id_user) {
+	public void setId_user(Users id_user) {
 		this.id_user = id_user;
 	}
 
-	public hotel_offer getId_hotel() {
-		return id_hotel;
+	public TravelOffer getId_travel() {
+		return id_travel;
 	}
 
-	public void setId_hotel(hotel_offer id_hotel) {
-		this.id_hotel = id_hotel;
+	public void setId_travel(TravelOffer id_travel) {
+		this.id_travel = id_travel;
 	}
 
 }

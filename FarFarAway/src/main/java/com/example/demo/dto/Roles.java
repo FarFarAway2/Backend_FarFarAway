@@ -13,8 +13,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "roles")
-public class roles {
+@Table(name = "Roles")
+public class Roles {
 	// Attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,10 +22,10 @@ public class roles {
 
 	private String role_name;
 	
-	public roles() {
+	public Roles() {
 	}
 
-	public roles(Long id_role, String role_name)
+	public Roles(Long id_role, String role_name)
 	{
 		this.id_role=id_role;
 		this.role_name=role_name;
@@ -46,15 +46,15 @@ public class roles {
 	public void setRole_name(String role_name) {
 		this.role_name = role_name;
 	}
-	@OneToMany(mappedBy = "roles")
-	private List<user_role> user_rol;
+	@OneToMany(mappedBy = "Roles")
+	private List<UserRole> user_rol;
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user_role")
-	public List<user_role> getUser_rol() {
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "UserRole")
+	public List<UserRole> getUser_rol() {
 		return user_rol;
 	}
-	public void setUser_rol(List<user_role> user_rol) {
+	public void setUser_rol(List<UserRole> user_rol) {
 		this.user_rol = user_rol;
 	}
 
