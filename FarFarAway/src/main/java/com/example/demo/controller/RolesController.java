@@ -16,19 +16,18 @@ import com.example.demo.dto.Roles;
 import com.example.demo.service.RolesService;
 
 @RestController
-@RequestMapping("/api")
 public class RolesController {
 
 	@Autowired
 	RolesService rolesService;
 
 	@GetMapping("/roles")
-	public List<Roles> listarRoless() {
+	public List<Roles> listRoles() {
 		return rolesService.listRoles();
 	}
 
 	@PostMapping("/roles")
-	public Roles salvarRoles(@RequestBody Roles roles) {
+	public Roles saveRoles(@RequestBody Roles roles) {
 		return rolesService.saveRoles(roles);
 	}
 
@@ -38,7 +37,7 @@ public class RolesController {
 	}
 
 	@PutMapping("/roles/{id}")
-	public Roles actualizarRoles(@PathVariable(name = "id") Long id, @RequestBody Roles roles) {
+	public Roles updateRoles(@PathVariable(name = "id") Long id, @RequestBody Roles roles) {
 
 		Roles rolesSeleccionada = new Roles();
 		Roles rolesActualizada = new Roles();
@@ -54,7 +53,7 @@ public class RolesController {
 	}
 
 	@DeleteMapping("/roles/{id}")
-	public void eliminarRoles(@PathVariable(name = "id") Long id) {
+	public void deleteRoles(@PathVariable(name = "id") Long id) {
 		rolesService.deleteRoles(id);
 	}
 }

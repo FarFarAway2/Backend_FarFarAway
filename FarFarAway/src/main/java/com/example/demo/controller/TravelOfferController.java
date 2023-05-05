@@ -16,7 +16,6 @@ import com.example.demo.dto.TravelOffer;
 import com.example.demo.service.TravelOfferService;
 
 @RestController
-@RequestMapping("/api")
 public class TravelOfferController {
 
 	@Autowired

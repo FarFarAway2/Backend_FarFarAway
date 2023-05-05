@@ -28,8 +28,7 @@ public class TravelManage {
 
 	}
 
-	public TravelManage(Long id_travel_manage, Users id_user, TravelOffer id_travel) {
-		this.id_travel_manage = id_travel_manage;
+	public TravelManage(Users id_user, TravelOffer id_travel) {
 		this.id_travel = id_travel;
 		this.id_user = id_user;
 	}

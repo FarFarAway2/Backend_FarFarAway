@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
@@ -17,6 +19,7 @@ public class Users {
 
 	// Attributes
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_user;
 
 	private Long age;
@@ -55,9 +58,8 @@ public class Users {
 	public Users() {
 	}
 
-	public Users(Long id_user, String user_password, String user_name, String email, String surname,
+	public Users(String user_password, String user_name, String email, String surname,
 			String phone_number, String fisical_name, String company_cif, Long age) {
-		this.id_user = id_user;
 		this.age = age;
 		this.user_password = user_password;
 		this.user_name = user_name;

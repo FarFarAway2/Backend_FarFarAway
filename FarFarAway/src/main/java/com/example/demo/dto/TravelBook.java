@@ -28,8 +28,7 @@ public class TravelBook {
 
 	}
 
-	public TravelBook(Long id_travel_book, Users id_user, TravelOffer id_travel) {
-		this.id_travel_book = id_travel_book;
+	public TravelBook(Users id_user, TravelOffer id_travel) {
 		this.id_travel = id_travel;
 		this.id_user = id_user;
 	}

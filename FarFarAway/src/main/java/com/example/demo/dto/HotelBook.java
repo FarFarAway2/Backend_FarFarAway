@@ -27,8 +27,7 @@ public class HotelBook {
 
 	}
 
-	public HotelBook(Long id_hotel_book, Users id_user, HotelOffer id_hotel) {
-		this.id_hotel_book = id_hotel_book;
+	public HotelBook(Users id_user, HotelOffer id_hotel) {
 		this.id_hotel = id_hotel;
 		this.id_user = id_user;
 	}

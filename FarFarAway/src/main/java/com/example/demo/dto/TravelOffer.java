@@ -50,7 +50,7 @@ public class TravelOffer {
 
 	}
 
-	public TravelOffer(Long id_travel, Long price, String image, String description, String travel_name,
+	public TravelOffer(Long price, String image, String description, String travel_name,
 			String transport, String expire_date, String travel_type, String title, Users id_user) {
 		this.image = image;
 		this.description = description;

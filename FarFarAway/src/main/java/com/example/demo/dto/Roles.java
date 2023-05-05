@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
@@ -16,6 +18,7 @@ import jakarta.persistence.Table;
 public class Roles {
 	// Attributes
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_role;
 
 	private String role_name;
@@ -27,8 +30,7 @@ public class Roles {
 	public Roles() {
 	}
 
-	public Roles(Long id_role, String role_name) {
-		this.id_role = id_role;
+	public Roles(String role_name) {
 		this.role_name = role_name;
 	}
 

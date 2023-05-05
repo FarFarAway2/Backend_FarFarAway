@@ -50,7 +50,7 @@ public class HotelOffer {
 
 	}
 
-	public HotelOffer(Long id_travel, Long price, String image, String longitude, String latitude, String hotel_name,
+	public HotelOffer(String image, String longitude, String latitude, String hotel_name,
 			String expire_date, String location, String title, Users id_user) {
 		this.image = image;
 		this.longitude = longitude;
@@ -140,6 +140,14 @@ public class HotelOffer {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public Users getId_user() {
+		return id_user;
+	}
+
+	public void setId_user(Users id_user) {
+		this.id_user = id_user;
 	}
 
 	@JsonIgnore

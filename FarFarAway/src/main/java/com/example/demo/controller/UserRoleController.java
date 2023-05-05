@@ -17,7 +17,6 @@ import com.example.demo.dto.UserRole;
 import com.example.demo.service.UserRoleService;
 
 @RestController
-@RequestMapping("/api")
 public class UserRoleController {
 
 	@Autowired

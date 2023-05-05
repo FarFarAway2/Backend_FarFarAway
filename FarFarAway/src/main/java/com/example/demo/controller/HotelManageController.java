@@ -17,7 +17,6 @@ import com.example.demo.dto.Users;
 import com.example.demo.service.HotelManageService;
 
 @RestController
-@RequestMapping("/api")
 public class HotelManageController {
 
 	@Autowired

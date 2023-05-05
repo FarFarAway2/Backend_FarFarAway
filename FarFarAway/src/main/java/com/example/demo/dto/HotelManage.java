@@ -28,8 +28,7 @@ public class HotelManage {
 
 	}
 
-	public HotelManage(Long id_hotel_manage, Users id_user, HotelOffer id_hotel) {
-		this.id_hotel_manage = id_hotel_manage;
+	public HotelManage(Users id_user, HotelOffer id_hotel) {
 		this.id_hotel = id_hotel;
 		this.id_user = id_user;
 	}

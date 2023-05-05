@@ -27,8 +27,7 @@ public class UserRole {
 
 	}
 
-	public UserRole(Long id_user_role, Users id_user, Roles id_role) {
-		this.id_user_role = id_user_role;
+	public UserRole(Users id_user, Roles id_role) {
 		this.id_role = id_role;
 		this.id_user = id_user;
 	}
