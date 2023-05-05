@@ -6,29 +6,30 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Roles")
+@Table(name = "roles")
 public class Roles {
 	// Attributes
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_role;
 
 	private String role_name;
-	
+
+	@OneToMany
+	@JoinColumn(name = "id_role")
+	private List<UserRole> user_role;
+
 	public Roles() {
 	}
 
-	public Roles(Long id_role, String role_name)
-	{
-		this.id_role=id_role;
-		this.role_name=role_name;
+	public Roles(Long id_role, String role_name) {
+		this.id_role = id_role;
+		this.role_name = role_name;
 	}
 
 	public Long getId_role() {
@@ -46,16 +47,20 @@ public class Roles {
 	public void setRole_name(String role_name) {
 		this.role_name = role_name;
 	}
-	@OneToMany(mappedBy = "Roles")
-	private List<UserRole> user_rol;
-	
+
+	@OneToMany(mappedBy = "UserRole")
+	private List<UserRole> user_role() {
+		return user_role;
+	}
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "UserRole")
-	public List<UserRole> getUser_rol() {
-		return user_rol;
+	public List<UserRole> getUser_role() {
+		return user_role;
 	}
-	public void setUser_rol(List<UserRole> user_rol) {
-		this.user_rol = user_rol;
+
+	public void setUser_rol(List<UserRole> user_role) {
+		this.user_role = user_role;
 	}
 
 }

@@ -1,15 +1,13 @@
 package com.example.demo.dto;
 
-
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -19,39 +17,56 @@ public class Users {
 
 	// Attributes
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_user, age;
+	private Long id_user;
 
-	private String user_password, user_name, email, surname, 
-	phone_number, fiscal_name, company_cif ;
+	private Long age;
 
+	private String user_password, user_name, email, surname, phone_number, fiscal_name, company_cif;
 
-	@OneToMany(mappedBy = "Users")
-	private List<UserRole> user_rol;
+	@OneToMany
+	@JoinColumn(name = "id_user")
+	private List<UserRole> user_role;
+
+	@OneToMany
+	@JoinColumn(name = "id_user")
 	private List<HotelOffer> hotel_off;
+
+	@OneToMany
+	@JoinColumn(name = "id_user")
 	private List<TravelOffer> travel_off;
+
+	@OneToMany
+	@JoinColumn(name = "id_user")
 	private List<HotelManage> hotel_man;
+
+	@OneToMany
+	@JoinColumn(name = "id_user")
 	private List<TravelManage> travel_man;
+
+	@OneToMany
+	@JoinColumn(name = "id_user")
 	private List<HotelBook> HotelBook;
+
+	@OneToMany
+	@JoinColumn(name = "id_user")
 	private List<TravelBook> TravelBook;
-	
 
 	// Constructors
 	public Users() {
 	}
 
-	public Users(Long id_user,String user_password,String user_name,String email,String surname,
-			String phone_number,String fisical_name,String company_cif,Long age) {
-		this.id_user=id_user;
-		this.age= age;
-		this.user_password=user_password;
-		this.user_name=user_name;
-		this.email=email;
-		this.surname=surname;
-		this.phone_number=phone_number;
-		//for a company 
-		this.fiscal_name=fisical_name;
-		this.company_cif=company_cif;
+	public Users(Long id_user, String user_password, String user_name, String email, String surname,
+			String phone_number, String fisical_name, String company_cif, Long age) {
+		this.id_user = id_user;
+		this.age = age;
+		this.user_password = user_password;
+		this.user_name = user_name;
+		this.email = email;
+		this.surname = surname;
+		this.phone_number = phone_number;
+		// for a company
+		this.fiscal_name = fisical_name;
+		this.company_cif = company_cif;
 	}
 
 	public Long getId_user() {
@@ -112,20 +127,20 @@ public class Users {
 
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "UserRole")
-	public List<UserRole> getUser_rol() {
-		return user_rol;
+	public List<UserRole> getUser_role() {
+		return user_role;
 	}
 
-	
-	public void setUser_rol(List<UserRole> user_rol) {
-		this.user_rol = user_rol;
+	public void setUser_role(List<UserRole> user_role) {
+		this.user_role = user_role;
 	}
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelOffer")
 	public List<HotelOffer> getHotel_off() {
 		return hotel_off;
 	}
-	
+
 	public void setHotel_off(List<HotelOffer> hotel_off) {
 		this.hotel_off = hotel_off;
 	}
@@ -139,7 +154,7 @@ public class Users {
 	public void setTravel_off(List<TravelOffer> travel_off) {
 		this.travel_off = travel_off;
 	}
-	
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelManage")
 	public List<HotelManage> getHotel_man() {
@@ -149,6 +164,7 @@ public class Users {
 	public void setHotel_man(List<HotelManage> hotel_man) {
 		this.hotel_man = hotel_man;
 	}
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelManage")
 	public List<TravelManage> getTravel_man() {
@@ -158,7 +174,7 @@ public class Users {
 	public void setTravel_man(List<TravelManage> travel_man) {
 		this.travel_man = travel_man;
 	}
-	
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelBook")
 	public List<HotelBook> getHotel_book() {
@@ -168,7 +184,7 @@ public class Users {
 	public void setHotel_book(List<HotelBook> HotelBook) {
 		this.HotelBook = HotelBook;
 	}
-	
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelBook")
 	public List<TravelBook> getTravel_book() {
@@ -196,4 +212,3 @@ public class Users {
 	}
 
 }
-

@@ -14,11 +14,11 @@ public class HotelManageService {
 	@Autowired
 	IHotelManageDAO hotelManageDAO;
 
-	public List<HotelManage> listarHotelManage() {
+	public List<HotelManage> listHotelManage() {
 		return hotelManageDAO.findAll();
 	}
 
-	public HotelManage guardarHotelManage(HotelManage hotelManage) {
+	public HotelManage saveHotelManage(HotelManage hotelManage) {
 		return hotelManageDAO.save(hotelManage);
 	}
 
@@ -26,11 +26,11 @@ public class HotelManageService {
 		return hotelManageDAO.findById(id).get();
 	}
 
-	public HotelManage actualizarHotelManage(HotelManage hotelManage) {
+	public HotelManage updateHotelManage(HotelManage hotelManage) {
 		return hotelManageDAO.save(hotelManage);
 	}
 
-	public void eliminarHotelManage(Users id) {
+	public void deleteHotelManage(Users id) {
 		hotelManageDAO.deleteById(id);
 	}
 }

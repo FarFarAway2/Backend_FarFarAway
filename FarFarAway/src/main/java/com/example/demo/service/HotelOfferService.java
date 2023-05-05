@@ -13,11 +13,11 @@ public class HotelOfferService {
 	@Autowired
 	IHotelOfferDAO hotelOfferDAO;
 
-	public List<HotelOffer> listarHotelOffers() {
+	public List<HotelOffer> listHotelOffers() {
 		return hotelOfferDAO.findAll();
 	}
 
-	public HotelOffer guardarHotelOffer(HotelOffer hotelOffer) {
+	public HotelOffer saveHotelOffer(HotelOffer hotelOffer) {
 		return hotelOfferDAO.save(hotelOffer);
 	}
 
@@ -25,11 +25,11 @@ public class HotelOfferService {
 		return hotelOfferDAO.findById(id).get();
 	}
 
-	public HotelOffer actualizarHotelOffer(HotelOffer hotelOffer) {
+	public HotelOffer updateHotelOffer(HotelOffer hotelOffer) {
 		return hotelOfferDAO.save(hotelOffer);
 	}
 
-	public void eliminarHotelOffer(Long id) {
+	public void deleteHotelOffer(Long id) {
 		hotelOfferDAO.deleteById(id);
 	}
 }

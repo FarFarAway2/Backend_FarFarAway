@@ -13,23 +13,23 @@ public class RolesService {
 	@Autowired
 	IRolesDAO RolesDAO;
 
-	public List<Roles> listarRoles() {
+	public List<Roles> listRoles() {
 		return RolesDAO.findAll();
 	}
 
-	public Roles guardarRoles(Roles Roles) {
+	public Roles saveRoles(Roles Roles) {
 		return RolesDAO.save(Roles);
 	}
 
-	public Roles RolesXID(Long id) {
+	public Roles rolesXID(Long id) {
 		return RolesDAO.findById(id).get();
 	}
 
-	public Roles actualizarRoles(Roles Roles) {
+	public Roles updateRoles(Roles Roles) {
 		return RolesDAO.save(Roles);
 	}
 
-	public void eliminarRoles(Long id) {
+	public void deleteRoles(Long id) {
 		RolesDAO.deleteById(id);
 	}
 }

@@ -9,10 +9,11 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "UserRole")
+@Table(name = "user_role")
 public class UserRole {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id_user_role;
 
 	@ManyToOne
 	@JoinColumn(name = "id_user")
@@ -23,12 +24,13 @@ public class UserRole {
 	private Roles id_role;
 
 	public UserRole() {
-		
+
 	}
-	public UserRole(Users id_user, Roles id_role)
-	{
-		this.id_role=id_role;
-		this.id_user=id_user;
+
+	public UserRole(Long id_user_role, Users id_user, Roles id_role) {
+		this.id_user_role = id_user_role;
+		this.id_role = id_role;
+		this.id_user = id_user;
 	}
 
 	public Users getId_user() {

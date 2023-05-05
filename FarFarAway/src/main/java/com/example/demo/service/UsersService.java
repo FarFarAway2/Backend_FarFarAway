@@ -13,23 +13,23 @@ public class UsersService {
 	@Autowired
 	IUsersDAO UsersDAO;
 
-	public List<Users> listarUsers() {
+	public List<Users> listUsers() {
 		return UsersDAO.findAll();
 	}
 
-	public Users guardarUsers(Users Users) {
+	public Users saveUsers(Users Users) {
 		return UsersDAO.save(Users);
 	}
 
-	public Users UsersXID(Long id) {
+	public Users usersXID(Long id) {
 		return UsersDAO.findById(id).get();
 	}
 
-	public Users actualizarUsers(Users Users) {
+	public Users updateUsers(Users Users) {
 		return UsersDAO.save(Users);
 	}
 
-	public void eliminarUsers(Long id) {
+	public void deleteUsers(Long id) {
 		UsersDAO.deleteById(id);
 	}
 }

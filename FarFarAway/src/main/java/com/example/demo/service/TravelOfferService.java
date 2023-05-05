@@ -13,11 +13,11 @@ public class TravelOfferService {
 	@Autowired
 	ITravelOfferDAO travelOfferDAO;
 
-	public List<TravelOffer> listarTravelOffers() {
+	public List<TravelOffer> listTravelOffers() {
 		return travelOfferDAO.findAll();
 	}
 
-	public TravelOffer guardarTravelOffer(TravelOffer travelOffer) {
+	public TravelOffer saveTravelOffer(TravelOffer travelOffer) {
 		return travelOfferDAO.save(travelOffer);
 	}
 
@@ -25,11 +25,11 @@ public class TravelOfferService {
 		return travelOfferDAO.findById(id).get();
 	}
 
-	public TravelOffer actualizarTravelOffer(TravelOffer travelOffer) {
+	public TravelOffer updateTravelOffer(TravelOffer travelOffer) {
 		return travelOfferDAO.save(travelOffer);
 	}
 
-	public void eliminarTravelOffer(Long id) {
+	public void deleteTravelOffer(Long id) {
 		travelOfferDAO.deleteById(id);
 	}
 }

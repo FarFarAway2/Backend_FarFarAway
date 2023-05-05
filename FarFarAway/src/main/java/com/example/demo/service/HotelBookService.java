@@ -14,11 +14,11 @@ public class HotelBookService {
 	@Autowired
 	IHotelBookDAO hotelBookDAO;
 
-	public List<HotelBook> listarHotelBooks() {
+	public List<HotelBook> listHotelBooks() {
 		return hotelBookDAO.findAll();
 	}
 
-	public HotelBook guardarHotelBook(HotelBook hotelBook) {
+	public HotelBook saveHotelBook(HotelBook hotelBook) {
 		return hotelBookDAO.save(hotelBook);
 	}
 
@@ -26,11 +26,11 @@ public class HotelBookService {
 		return hotelBookDAO.findById(id).get();
 	}
 
-	public HotelBook actualizarHotelBook(HotelBook hotelBook) {
+	public HotelBook updateHotelBook(HotelBook hotelBook) {
 		return hotelBookDAO.save(hotelBook);
 	}
 
-	public void eliminarHotelBook(Users id) {
+	public void deleteHotelBook(Users id) {
 		hotelBookDAO.deleteById(id);
 	}
 }

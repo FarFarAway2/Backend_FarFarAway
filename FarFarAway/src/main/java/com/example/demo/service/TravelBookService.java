@@ -14,11 +14,11 @@ public class TravelBookService {
 	@Autowired
 	ITravelBookDAO travelBookDAO;
 
-	public List<TravelBook> listarTravelBooks() {
+	public List<TravelBook> listTravelBooks() {
 		return travelBookDAO.findAll();
 	}
 
-	public TravelBook guardarTravelBook(TravelBook travelBook) {
+	public TravelBook saveTravelBook(TravelBook travelBook) {
 		return travelBookDAO.save(travelBook);
 	}
 
@@ -26,11 +26,11 @@ public class TravelBookService {
 		return travelBookDAO.findById(id).get();
 	}
 
-	public TravelBook actualizarTravelBook(TravelBook travelBook) {
+	public TravelBook updateTravelBook(TravelBook travelBook) {
 		return travelBookDAO.save(travelBook);
 	}
 
-	public void eliminarTravelBook(Users id) {
+	public void deleteTravelBook(Users id) {
 		travelBookDAO.deleteById(id);
 	}
 }

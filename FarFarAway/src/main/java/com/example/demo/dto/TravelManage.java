@@ -9,11 +9,13 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "TravelManage")
+@Table(name = "travel_manage")
 public class TravelManage {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
+	private Long id_travel_manage;
+	
 	@ManyToOne
 	@JoinColumn(name = "id_user")
 	private Users id_user;
@@ -23,12 +25,21 @@ public class TravelManage {
 	private TravelOffer id_travel;
 
 	public TravelManage() {
-		
+
 	}
-	public TravelManage(Users id_user, TravelOffer id_travel)
-	{
-		this.id_travel=id_travel;
-		this.id_user=id_user;
+
+	public TravelManage(Long id_travel_manage, Users id_user, TravelOffer id_travel) {
+		this.id_travel_manage = id_travel_manage;
+		this.id_travel = id_travel;
+		this.id_user = id_user;
+	}
+	
+	public Long getId_travel_manage() {
+		return id_travel_manage;
+	}
+	
+	public void setId_travel_manage(Long id_travel_manage) {
+		this.id_travel_manage = id_travel_manage;
 	}
 
 	public Users getId_user() {

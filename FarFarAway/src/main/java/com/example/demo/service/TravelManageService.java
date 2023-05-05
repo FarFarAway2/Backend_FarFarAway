@@ -14,11 +14,11 @@ public class TravelManageService {
 	@Autowired
 	ITravelManageDAO travelManageDAO;
 
-	public List<TravelManage> listarTravelManage() {
+	public List<TravelManage> listTravelManage() {
 		return travelManageDAO.findAll();
 	}
 
-	public TravelManage guardarTravelManage(TravelManage travelManage) {
+	public TravelManage saveTravelManage(TravelManage travelManage) {
 		return travelManageDAO.save(travelManage);
 	}
 
@@ -26,11 +26,11 @@ public class TravelManageService {
 		return travelManageDAO.findById(id).get();
 	}
 
-	public TravelManage actualizarTravelManage(TravelManage travelManage) {
+	public TravelManage updateTravelManage(TravelManage travelManage) {
 		return travelManageDAO.save(travelManage);
 	}
 
-	public void eliminarTravelManage(Users id) {
+	public void deleteTravelManage(Users id) {
 		travelManageDAO.deleteById(id);
 	}
 }

@@ -14,11 +14,11 @@ public class UserRoleService {
 	@Autowired
 	IUserRoleDAO userRoleDAO;
 
-	public List<UserRole> listarUserRoles() {
+	public List<UserRole> listUserRoles() {
 		return userRoleDAO.findAll();
 	}
 
-	public UserRole guardarUserRole(UserRole userRole) {
+	public UserRole saveUserRole(UserRole userRole) {
 		return userRoleDAO.save(userRole);
 	}
 
@@ -26,11 +26,11 @@ public class UserRoleService {
 		return userRoleDAO.findById(id).get();
 	}
 
-	public UserRole actualizarUserRole(UserRole userRole) {
+	public UserRole updateUserRole(UserRole userRole) {
 		return userRoleDAO.save(userRole);
 	}
 
-	public void eliminarUserRole(Users id) {
+	public void deleteUserRole(Users id) {
 		userRoleDAO.deleteById(id);
 	}
 }
