@@ -33,12 +33,12 @@ public class HotelBookController {
 	}
 
 	@GetMapping("/hotelbooks/{id}")
-	public HotelBook hotelBookXID(@PathVariable(name = "id") Users id) {
+	public HotelBook hotelBookXID(@PathVariable(name = "id") Long id) {
 		return hotelBookService.hotelBookXID(id);
 	}
 
 	@PutMapping("/hotelbooks/{id}")
-	public HotelBook actualizarHotelBook(@PathVariable(name = "id") Users id, @RequestBody HotelBook hotelBook) {
+	public HotelBook updateHotelBook(@PathVariable(name = "id") Long id, @RequestBody HotelBook hotelBook) {
 
 		HotelBook hotelBookSeleccionado = new HotelBook();
 		HotelBook hotelBookActualizado = new HotelBook();
@@ -54,7 +54,7 @@ public class HotelBookController {
 	}
 
 	@DeleteMapping("/hotelbooks/{id}")
-	public void eliminarHotelBook(@PathVariable(name = "id") Users id) {
+	public void deleteHotelBook(@PathVariable(name = "id") Long id) {
 		hotelBookService.deleteHotelBook(id);
 	}
 }

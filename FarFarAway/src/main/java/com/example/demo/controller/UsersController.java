@@ -44,7 +44,6 @@ public class UsersController {
 
 		usersSeleccionada = usersService.usersXID(id);
 
-		usersSeleccionada.setId_user(users.getId_user());
 		usersSeleccionada.setAge(users.getAge());
 		usersSeleccionada.setUser_password(users.getUser_password());
 		usersSeleccionada.setEmail(users.getEmail());

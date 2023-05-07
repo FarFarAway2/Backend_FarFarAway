@@ -43,7 +43,6 @@ public class HotelOfferController {
 		HotelOffer hotelOfferActualizado = new HotelOffer();
 
 		hotelOfferSeleccionado = hotelOfferService.hotelOfferXID(id);
-		hotelOfferSeleccionado.setId_hotel(hotelOffer.getId_hotel());
 		hotelOfferSeleccionado.setPrice(hotelOffer.getPrice());
 		hotelOfferSeleccionado.setRating(hotelOffer.getRating());
 		hotelOfferSeleccionado.setImage(hotelOffer.getImage());
@@ -53,6 +52,7 @@ public class HotelOfferController {
 		hotelOfferSeleccionado.setLocation(hotelOffer.getLocation());
 		hotelOfferSeleccionado.setHotel_name(hotelOffer.getHotel_name());
 		hotelOfferSeleccionado.setTitle(hotelOffer.getTitle());
+		hotelOfferSeleccionado.setId_user(hotelOffer.getId_user());
 
 		hotelOfferActualizado = hotelOfferService.updateHotelOffer(hotelOfferSeleccionado);
 

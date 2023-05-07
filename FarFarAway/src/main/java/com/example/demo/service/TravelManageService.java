@@ -22,7 +22,7 @@ public class TravelManageService {
 		return travelManageDAO.save(travelManage);
 	}
 
-	public TravelManage travelManageXID(Users id) {
+	public TravelManage travelManageXID(Long id) {
 		return travelManageDAO.findById(id).get();
 	}
 
@@ -30,7 +30,7 @@ public class TravelManageService {
 		return travelManageDAO.save(travelManage);
 	}
 
-	public void deleteTravelManage(Users id) {
+	public void deleteTravelManage(Long id) {
 		travelManageDAO.deleteById(id);
 	}
 }

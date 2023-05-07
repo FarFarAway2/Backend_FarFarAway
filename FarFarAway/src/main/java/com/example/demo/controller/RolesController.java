@@ -44,7 +44,6 @@ public class RolesController {
 
 		rolesSeleccionada = rolesService.rolesXID(id);
 
-		rolesSeleccionada.setId_role(roles.getId_role());
 		rolesSeleccionada.setRole_name(roles.getRole_name());
 
 		rolesActualizada = rolesService.updateRoles(rolesSeleccionada);

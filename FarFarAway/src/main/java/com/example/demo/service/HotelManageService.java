@@ -22,7 +22,7 @@ public class HotelManageService {
 		return hotelManageDAO.save(hotelManage);
 	}
 
-	public HotelManage hotelManageXID(Users id) {
+	public HotelManage hotelManageXID(Long id) {
 		return hotelManageDAO.findById(id).get();
 	}
 
@@ -30,7 +30,7 @@ public class HotelManageService {
 		return hotelManageDAO.save(hotelManage);
 	}
 
-	public void deleteHotelManage(Users id) {
+	public void deleteHotelManage(Long id) {
 		hotelManageDAO.deleteById(id);
 	}
 }

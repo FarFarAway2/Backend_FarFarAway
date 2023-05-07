@@ -87,6 +87,7 @@ public class Users {
 		this.age = age;
 	}
 
+	@JsonIgnore
 	public String getUser_password() {
 		return user_password;
 	}

@@ -33,12 +33,12 @@ public class HotelManageController {
 	}
 
 	@GetMapping("/hotelmanages/{id}")
-	public HotelManage hotelManageXID(@PathVariable(name = "id") Users id) {
+	public HotelManage hotelManageXID(@PathVariable(name = "id") Long id) {
 		return hotelManageService.hotelManageXID(id);
 	}
 
 	@PutMapping("/hotelmanages/{id}")
-	public HotelManage actualizarHotelManage(@PathVariable(name = "id") Users id,
+	public HotelManage updateHotelManage(@PathVariable(name = "id") Long id,
 			@RequestBody HotelManage hotelManage) {
 
 		HotelManage hotelManageSeleccionado = new HotelManage();
@@ -54,7 +54,7 @@ public class HotelManageController {
 	}
 
 	@DeleteMapping("/hotelmanages/{id}")
-	public void eliminarHotelManage(@PathVariable(name = "id") Users id) {
+	public void deleteHotelManage(@PathVariable(name = "id") Long id) {
 		hotelManageService.deleteHotelManage(id);
 	}
 }

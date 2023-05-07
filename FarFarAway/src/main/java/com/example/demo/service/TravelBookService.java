@@ -22,7 +22,7 @@ public class TravelBookService {
 		return travelBookDAO.save(travelBook);
 	}
 
-	public TravelBook travelBookXID(Users id) {
+	public TravelBook travelBookXID(Long id) {
 		return travelBookDAO.findById(id).get();
 	}
 
@@ -30,7 +30,7 @@ public class TravelBookService {
 		return travelBookDAO.save(travelBook);
 	}
 
-	public void deleteTravelBook(Users id) {
+	public void deleteTravelBook(Long id) {
 		travelBookDAO.deleteById(id);
 	}
 }

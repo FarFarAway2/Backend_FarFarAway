@@ -43,7 +43,6 @@ public class TravelOfferController {
 		TravelOffer travelOfferActualizado = new TravelOffer();
 
 		travelOfferSeleccionado = travelOfferService.travelOfferXID(id);
-		travelOfferSeleccionado.setId_travel(travelOffer.getId_travel());
 		travelOfferSeleccionado.setPrice(travelOffer.getPrice());
 		travelOfferSeleccionado.setImage(travelOffer.getImage());
 		travelOfferSeleccionado.setDescription(travelOffer.getDescription());
@@ -52,6 +51,7 @@ public class TravelOfferController {
 		travelOfferSeleccionado.setExpire_date(travelOffer.getExpire_date());
 		travelOfferSeleccionado.setTravel_type(travelOffer.getTravel_type());
 		travelOfferSeleccionado.setTitle(travelOffer.getTitle());
+		travelOfferSeleccionado.setId_user(travelOffer.getId_user());
 
 		travelOfferActualizado = travelOfferService.updateTravelOffer(travelOfferSeleccionado);
 

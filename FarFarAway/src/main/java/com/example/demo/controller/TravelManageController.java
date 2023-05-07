@@ -22,23 +22,23 @@ public class TravelManageController {
 	@Autowired
 	TravelManageService travelManageService;
 
-	@GetMapping("/travelmanage")
+	@GetMapping("/travelmanages")
 	public List<TravelManage> listTravelManages() {
 		return travelManageService.listTravelManage();
 	}
 
-	@PostMapping("/travelmanage")
+	@PostMapping("/travelmanages")
 	public TravelManage saveTravelManage(@RequestBody TravelManage travelManage) {
 		return travelManageService.saveTravelManage(travelManage);
 	}
 
-	@GetMapping("/travelmanage/{id}")
-	public TravelManage travelManageXID(@PathVariable(name = "id") Users id) {
+	@GetMapping("/travelmanages/{id}")
+	public TravelManage travelManageXID(@PathVariable(name = "id") Long id) {
 		return travelManageService.travelManageXID(id);
 	}
 
-	@PutMapping("/travelmanage/{id}")
-	public TravelManage actualizarTravelManage(@PathVariable(name = "id") Users id,
+	@PutMapping("/travelmanages/{id}")
+	public TravelManage updateTravelManage(@PathVariable(name = "id") Long id,
 			@RequestBody TravelManage travelManage) {
 
 		TravelManage travelManageSeleccionado = new TravelManage();
@@ -53,8 +53,8 @@ public class TravelManageController {
 		return travelManageActualizado;
 	}
 
-	@DeleteMapping("/travelmanage/{id}")
-	public void eliminarTravelManage(@PathVariable(name = "id") Users id) {
+	@DeleteMapping("/travelmanages/{id}")
+	public void deleteTravelManage(@PathVariable(name = "id") Long id) {
 		travelManageService.deleteTravelManage(id);
 	}
 }

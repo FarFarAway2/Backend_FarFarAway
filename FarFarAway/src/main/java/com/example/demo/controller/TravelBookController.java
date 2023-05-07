@@ -22,23 +22,23 @@ public class TravelBookController {
 	@Autowired
 	TravelBookService travelBookService;
 
-	@GetMapping("/travelbook")
+	@GetMapping("/travelbooks")
 	public List<TravelBook> listTravelBooks() {
 		return travelBookService.listTravelBooks();
 	}
 
-	@PostMapping("/travelbook")
+	@PostMapping("/travelbooks")
 	public TravelBook saveTravelBook(@RequestBody TravelBook travelBook) {
 		return travelBookService.saveTravelBook(travelBook);
 	}
 
-	@GetMapping("/travelbook/{id}")
-	public TravelBook travelBookXID(@PathVariable(name = "id") Users id) {
+	@GetMapping("/travelbooks/{id}")
+	public TravelBook travelBookXID(@PathVariable(name = "id") Long id) {
 		return travelBookService.travelBookXID(id);
 	}
 
-	@PutMapping("/travelbook/{id}")
-	public TravelBook actualizarTravelBook(@PathVariable(name = "id") Users id, @RequestBody TravelBook travelBook) {
+	@PutMapping("/travelbooks/{id}")
+	public TravelBook updateTravelBook(@PathVariable(name = "id") Long id, @RequestBody TravelBook travelBook) {
 
 		TravelBook travelBookSeleccionado = new TravelBook();
 		TravelBook travelBookActualizado = new TravelBook();
@@ -52,8 +52,8 @@ public class TravelBookController {
 		return travelBookActualizado;
 	}
 
-	@DeleteMapping("/travelbook/{id}")
-	public void eliminarTravelBook(@PathVariable(name = "id") Users id) {
+	@DeleteMapping("/travelbooks/{id}")
+	public void deleteTravelBook(@PathVariable(name = "id") Long id) {
 		travelBookService.deleteTravelBook(id);
 	}
 }

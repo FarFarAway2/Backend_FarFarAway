@@ -22,23 +22,23 @@ public class UserRoleController {
 	@Autowired
 	UserRoleService userRoleService;
 
-	@GetMapping("/userrole")
+	@GetMapping("/userroles")
 	public List<UserRole> listUserRoles() {
 		return userRoleService.listUserRoles();
 	}
 
-	@PostMapping("/userrole")
+	@PostMapping("/userroles")
 	public UserRole saveUserRole(@RequestBody UserRole userRole) {
 		return userRoleService.saveUserRole(userRole);
 	}
 
-	@GetMapping("/userrole/{id}")
-	public UserRole userRoleXID(@PathVariable(name = "id") Users id) {
+	@GetMapping("/userroles/{id}")
+	public UserRole userRoleXID(@PathVariable(name = "id") Long id) {
 		return userRoleService.userRoleXID(id);
 	}
 
-	@PutMapping("/userrole/{id}")
-	public UserRole actualizarUserRole(@PathVariable(name = "id") Users id, @RequestBody UserRole userRole) {
+	@PutMapping("/userroles/{id}")
+	public UserRole updateUserRole(@PathVariable(name = "id") Long id, @RequestBody UserRole userRole) {
 
 		UserRole userRoleSeleccionado = new UserRole();
 		UserRole userRoleActualizado = new UserRole();
@@ -52,8 +52,8 @@ public class UserRoleController {
 		return userRoleActualizado;
 	}
 
-	@DeleteMapping("/userrole/{id}")
-	public void eliminarUserRole(@PathVariable(name = "id") Users id) {
+	@DeleteMapping("/userroles/{id}")
+	public void deleteUserRole(@PathVariable(name = "id") Long id) {
 		userRoleService.deleteUserRole(id);
 	}
 }

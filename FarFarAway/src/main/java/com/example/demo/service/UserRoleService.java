@@ -22,7 +22,7 @@ public class UserRoleService {
 		return userRoleDAO.save(userRole);
 	}
 
-	public UserRole userRoleXID(Users id) {
+	public UserRole userRoleXID(Long id) {
 		return userRoleDAO.findById(id).get();
 	}
 
@@ -30,7 +30,7 @@ public class UserRoleService {
 		return userRoleDAO.save(userRole);
 	}
 
-	public void deleteUserRole(Users id) {
+	public void deleteUserRole(Long id) {
 		userRoleDAO.deleteById(id);
 	}
 }

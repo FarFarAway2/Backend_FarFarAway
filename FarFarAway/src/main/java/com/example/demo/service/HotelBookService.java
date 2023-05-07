@@ -22,7 +22,7 @@ public class HotelBookService {
 		return hotelBookDAO.save(hotelBook);
 	}
 
-	public HotelBook hotelBookXID(Users id) {
+	public HotelBook hotelBookXID(Long id) {
 		return hotelBookDAO.findById(id).get();
 	}
 
@@ -30,7 +30,7 @@ public class HotelBookService {
 		return hotelBookDAO.save(hotelBook);
 	}
 
-	public void deleteHotelBook(Users id) {
+	public void deleteHotelBook(Long id) {
 		hotelBookDAO.deleteById(id);
 	}
 }
