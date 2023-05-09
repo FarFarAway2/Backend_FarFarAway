@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.IUserRoleDAO;
 import com.example.demo.dto.UserRole;
-import com.example.demo.dto.Users;
 
 @Service
 public class UserRoleService {

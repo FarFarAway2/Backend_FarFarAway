@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.IHotelBookDAO;
 import com.example.demo.dto.HotelBook;
-import com.example.demo.dto.Users;
 
 @Service
 public class HotelBookService {
