@@ -1,6 +1,6 @@
 package com.example.demo.security;
 
-import static com.delpozo.security.Constants.LOGIN_URL;
+import static com.example.demo.security.Constants.LOGIN_URL;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,7 +27,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	}
 
 	@Bean
-	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+	public static BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 

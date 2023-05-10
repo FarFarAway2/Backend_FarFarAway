@@ -1,8 +1,8 @@
 package com.example.demo.security;
 
-import static com.delpozo.security.Constants.HEADER_AUTHORIZACION_KEY;
-import static com.delpozo.security.Constants.SUPER_SECRET_KEY;
-import static com.delpozo.security.Constants.TOKEN_BEARER_PREFIX;
+import static com.example.demo.security.Constants.HEADER_AUTHORIZACION_KEY;
+import static com.example.demo.security.Constants.SUPER_SECRET_KEY;
+import static com.example.demo.security.Constants.TOKEN_BEARER_PREFIX;
 
 import java.io.IOException;
 import java.util.ArrayList;

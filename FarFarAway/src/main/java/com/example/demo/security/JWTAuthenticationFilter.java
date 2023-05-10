@@ -1,10 +1,10 @@
 package com.example.demo.security;
 
-import static com.delpozo.security.Constants.HEADER_AUTHORIZACION_KEY;
-import static com.delpozo.security.Constants.ISSUER_INFO;
-import static com.delpozo.security.Constants.SUPER_SECRET_KEY;
-import static com.delpozo.security.Constants.TOKEN_BEARER_PREFIX;
-import static com.delpozo.security.Constants.TOKEN_EXPIRATION_TIME;
+import static com.example.demo.security.Constants.HEADER_AUTHORIZACION_KEY;
+import static com.example.demo.security.Constants.ISSUER_INFO;
+import static com.example.demo.security.Constants.SUPER_SECRET_KEY;
+import static com.example.demo.security.Constants.TOKEN_BEARER_PREFIX;
+import static com.example.demo.security.Constants.TOKEN_EXPIRATION_TIME;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.delpozo.dto.Usuario;
+import com.example.demo.dto.Users;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -42,10 +42,10 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException {
 		try {
-			Usuario credenciales = new ObjectMapper().readValue(request.getInputStream(), Usuario.class);
+			Users credenciales = new ObjectMapper().readValue(request.getInputStream(), Users.class);
 
 			return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-					credenciales.getUsername(), credenciales.getPassword(), new ArrayList<>()));
+					credenciales.getEmail(), credenciales.getUser_password(), new ArrayList<>()));
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
