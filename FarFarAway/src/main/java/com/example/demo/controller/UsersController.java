@@ -56,6 +56,12 @@ public class UsersController {
 
 		return usersActualizada;
 	}
+	@GetMapping("/users/{username}")
+	public Users getUsers(@PathVariable String email) {
+		return (Users) usersService.loadUserByUsername(email);
+	}
+	
+	
 
 	@DeleteMapping("/users/{id}")
 	public void eliminarUsers(@PathVariable(name = "id") Long id) {

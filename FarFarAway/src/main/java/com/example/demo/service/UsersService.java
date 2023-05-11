@@ -1,35 +1,50 @@
 package com.example.demo.service;
 
+import static java.util.Collections.emptyList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.IUsersDAO;
 import com.example.demo.dto.Users;
 
 @Service
-public class UsersService {
+public class UsersService implements UserDetailsService{
 	@Autowired
-	IUsersDAO UsersDAO;
+	IUsersDAO iUsersDAO;
 
 	public List<Users> listUsers() {
-		return UsersDAO.findAll();
+		return iUsersDAO.findAll();
 	}
 
 	public Users saveUsers(Users Users) {
-		return UsersDAO.save(Users);
+		return iUsersDAO.save(Users);
 	}
 
 	public Users usersXID(Long id) {
-		return UsersDAO.findById(id).get();
+		return iUsersDAO.findById(id).get();
 	}
 
 	public Users updateUsers(Users Users) {
-		return UsersDAO.save(Users);
+		return iUsersDAO.save(Users);
 	}
 
 	public void deleteUsers(Long id) {
-		UsersDAO.deleteById(id);
+		iUsersDAO.deleteById(id);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		Users user = iUsersDAO.findByEmail(email);
+		if(user == null) {
+			throw new UsernameNotFoundException(email);
+		}
+		return new User(user.getEmail(), user.getUser_password(), emptyList());
 	}
 }
