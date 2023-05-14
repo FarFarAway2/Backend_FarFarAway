@@ -34,78 +34,78 @@ The application offers the following functionalities and features:
 	- Represents a hotel offer. It contains attributes such as price, description, hotel name and image. It also maintains a list of the reservations and the management of the offer.
 
 4. **Roles**: 
- - Represents a user role. It contains a name for the role. This model could be used in an authorization system.
+	- Represents a user role. It contains a name for the role. This model could be used in an authorization system.
 
 5. **TravelBook**: 
- - Same as HotelBook, but for travel offers. Indicates that a user has booked a specific travel offer.
+	- Same as HotelBook, but for travel offers. Indicates that a user has booked a specific travel offer.
 
 6. **TravelManage**: 
- - Same as HotelManage, but for travel offers. Indicates that a specific user is managing a travel offer.
+	- Same as HotelManage, but for travel offers. Indicates that a specific user is managing a travel offer.
 
 7. **TravelOffer**:
- - Represents a travel offer. Like HotelOffer, it contains details of the offer and maintains a list of bookings and offer management.
+	- Represents a travel offer. Like HotelOffer, it contains details of the offer and maintains a list of bookings and offer management.
 
 8. **UserRole**: 
- - Associates a user with a role. It is useful to implement a system of roles and permissions.
+	- Associates a user with a role. It is useful to implement a system of roles and permissions.
 
 9. **Users**: 
- - Represents a user in the system. Contains user information such as name, email, password, and more. It also maintains lists of hotel and travel offers, and the managements and reservations that the user has made.
+	- Represents a user in the system. Contains user information such as name, email, password, and more. It also maintains lists of hotel and travel offers, and the managements and reservations that the user has made.
 
 ##### *dao Package*
 
 These interfaces allow interacting with the database and performing persistence operations on the corresponding entities.
 
 1. **IHotelBookDAO**: 
- - This interface extends JpaRepository and is associated with the HotelBook class. It provides methods to perform CRUD operations on the HotelBook entity.
+	- This interface extends JpaRepository and is associated with the HotelBook class. It provides methods to perform CRUD operations on the HotelBook entity.
 
 2. **IHotelManageDAO**: 
- - This interface extends JpaRepository and is associated with the HotelManage class. It provides methods to perform CRUD operations on the HotelManage entity.
+	- This interface extends JpaRepository and is associated with the HotelManage class. It provides methods to perform CRUD operations on the HotelManage entity.
 
 3. **IHotelOfferDAO**: 
- - This interface extends JpaRepository and is associated with the HotelOffer class. It provides methods to perform CRUD operations on the HotelOffer entity.
+	- This interface extends JpaRepository and is associated with the HotelOffer class. It provides methods to perform CRUD operations on the HotelOffer entity.
 
 4. **IRolesDAO**: 
- - This interface extends JpaRepository and is associated with the Roles class. It provides methods to perform CRUD operations on the Roles entity.
+	- This interface extends JpaRepository and is associated with the Roles class. It provides methods to perform CRUD operations on the Roles entity.
 
 5. **ITravelBookDAO**: 
- - This interface extends JpaRepository and is associated with the TravelBook class. It provides methods to perform CRUD operations on the TravelBook entity.
+	- This interface extends JpaRepository and is associated with the TravelBook class. It provides methods to perform CRUD operations on the TravelBook entity.
 
 6. **ITravelManageDAO**: 
- - This interface extends JpaRepository and is associated with the TravelManage class. It provides methods to perform CRUD operations on the TravelManage entity.
+	- This interface extends JpaRepository and is associated with the TravelManage class. It provides methods to perform CRUD operations on the TravelManage entity.
 
 7. **ITravelOfferDAO**: 
- - This interface extends JpaRepository and is associated with the TravelOffer class. It provides methods to perform CRUD operations on the TravelOffer entity.
+	- This interface extends JpaRepository and is associated with the TravelOffer class. It provides methods to perform CRUD operations on the TravelOffer entity.
 
 8. **IUserRoleDAO**: 
- - This interface extends JpaRepository and is associated with the UserRole class. It provides methods to perform CRUD operations on the UserRole entity.
+	- This interface extends JpaRepository and is associated with the UserRole class. It provides methods to perform CRUD operations on the UserRole entity.
 
 9. **IUsersDAO**: 
- - This interface extends JpaRepository and is associated with the Users class. It provides methods to perform CRUD operations on the Users entity. In addition, it includes a custom method findByEmail to search for users by their e-mail address.
+	- This interface extends JpaRepository and is associated with the Users class. It provides methods to perform CRUD operations on the Users entity. In addition, it includes a custom method findByEmail to search for users by their e-mail address.
 
 ##### *service Package*
 
 These services encapsulate the business logic and communicate with the corresponding Data Access Objects (DAO) to perform database operations.
 
 1. **HotelBookService**: 
-- This class is a service that is responsible for interacting with the HotelBook entity. It provides methods to list, save, get by ID, update and delete hotel books.
+	- This class is a service that is responsible for interacting with the HotelBook entity. It provides methods to list, save, get by ID, update and delete hotel books.
 
 2. **HotelManageService**: 
-- This service is responsible for operations related to the HotelManage entity. It provides methods to list, save, get by ID, update and delete hotel management.
+	- This service is responsible for operations related to the HotelManage entity. It provides methods to list, save, get by ID, update and delete hotel management.
 
 3. **HotelOfferService**: 
-- This service class handles operations related to the HotelOffer entity. It provides methods to list, save, get by ID, update and delete hotel offers.
+	- This service class handles operations related to the HotelOffer entity. It provides methods to list, save, get by ID, update and delete hotel offers.
 
 4. **RolesService**: 
-- This service handles operations related to the Roles entity. It provides methods to list, save, get by ID, update and delete roles.
+	- This service handles operations related to the Roles entity. It provides methods to list, save, get by ID, update and delete roles.
 
 5. **TravelBookService**: 
-- This service class handles operations related to the TravelBook entity. It provides methods to list, save, get by ID, update and delete travel books.
+	- This service class handles operations related to the TravelBook entity. It provides methods to list, save, get by ID, update and delete travel books.
 
 6. **TravelManageService**:
-- This service handles operations related to the TravelManage entity. It provides methods to list, save, get by ID, update and delete travel management.
+	- This service handles operations related to the TravelManage entity. It provides methods to list, save, get by ID, update and delete travel management.
 
 7. **TravelOfferService**: 
-- This service class handles operations related to the TravelOffer entity. It provides methods for listing, saving, fetching by ID, updating and deleting travel offers.
+	- This service class handles operations related to the TravelOffer entity. It provides methods for listing, saving, fetching by ID, updating and deleting travel offers.
 
 8. **UserRoleService**: 
 	- This service handles operations related to the UserRole entity. It provides methods to list, save, get by ID, update and delete user roles.
