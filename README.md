@@ -80,7 +80,7 @@ These interfaces allow interacting with the database and performing persistence 
  - This interface extends JpaRepository and is associated with the UserRole class. It provides methods to perform CRUD operations on the UserRole entity.
 
 9. **IUsersDAO**: 
- - This interface extends JpaRepository and is associated with the Users class. It provides methods to perform CRUD operations on the Users entity. In addition, it includes a custom method findByEmail to search for users by their e-mail address.
+  - This interface extends JpaRepository and is associated with the Users class. It provides methods to perform CRUD operations on the Users entity. In addition, it includes a custom method findByEmail to search for users by their e-mail address.
 
 ##### *controller package*
 
