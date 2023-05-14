@@ -80,7 +80,38 @@ These interfaces allow interacting with the database and performing persistence 
  - This interface extends JpaRepository and is associated with the UserRole class. It provides methods to perform CRUD operations on the UserRole entity.
 
 9. **IUsersDAO**: 
-  - This interface extends JpaRepository and is associated with the Users class. It provides methods to perform CRUD operations on the Users entity. In addition, it includes a custom method findByEmail to search for users by their e-mail address.
+ - This interface extends JpaRepository and is associated with the Users class. It provides methods to perform CRUD operations on the Users entity. In addition, it includes a custom method findByEmail to search for users by their e-mail address.
+
+##### *service Package*
+
+These services encapsulate the business logic and communicate with the corresponding Data Access Objects (DAO) to perform database operations.
+
+1. **HotelBookService**: 
+- This class is a service that is responsible for interacting with the HotelBook entity. It provides methods to list, save, get by ID, update and delete hotel books.
+
+2. **HotelManageService**: 
+- This service is responsible for operations related to the HotelManage entity. It provides methods to list, save, get by ID, update and delete hotel management.
+
+3. **HotelOfferService**: 
+- This service class handles operations related to the HotelOffer entity. It provides methods to list, save, get by ID, update and delete hotel offers.
+
+4. **RolesService**: 
+- This service handles operations related to the Roles entity. It provides methods to list, save, get by ID, update and delete roles.
+
+5. **TravelBookService**: 
+- This service class handles operations related to the TravelBook entity. It provides methods to list, save, get by ID, update and delete travel books.
+
+6. **TravelManageService**:
+- This service handles operations related to the TravelManage entity. It provides methods to list, save, get by ID, update and delete travel management.
+
+7. **TravelOfferService**: 
+- This service class handles operations related to the TravelOffer entity. It provides methods for listing, saving, fetching by ID, updating and deleting travel offers.
+
+8. **UserRoleService**: 
+- This service handles operations related to the UserRole entity. It provides methods to list, save, get by ID, update and delete user roles.
+
+9. **UsersService**: 
+- This service class handles operations related to the Users entity. It provides methods to list, save, get by ID, update and delete users. It also implements the UserDetailsService interface for user authentication using Spring Security.
 
 ##### *controller package*
 
