@@ -25,13 +25,13 @@ The application offers the following functionalities and features:
 ##### *dto Package*
 
 1. **HotelBook**: 
- - Represents a hotel reservation. Contains references to a user and a hotel offer, indicating that a user has booked a specific hotel offer.
+	- Represents a hotel reservation. Contains references to a user and a hotel offer, indicating that a user has booked a specific hotel offer.
 
 2. **HotelManage**: 
- - Represents the management of a hotel offer. Contains references to a user and a hotel offer, indicating that a specific user is managing a hotel offer.
+	- Represents the management of a hotel offer. Contains references to a user and a hotel offer, indicating that a specific user is managing a hotel offer.
 
 3. **HotelOffer**: 
- - Represents a hotel offer. It contains attributes such as price, description, hotel name and image. It also maintains a list of the reservations and the management of the offer.
+	- Represents a hotel offer. It contains attributes such as price, description, hotel name and image. It also maintains a list of the reservations and the management of the offer.
 
 4. **Roles**: 
  - Represents a user role. It contains a name for the role. This model could be used in an authorization system.
@@ -108,10 +108,10 @@ These services encapsulate the business logic and communicate with the correspon
 - This service class handles operations related to the TravelOffer entity. It provides methods for listing, saving, fetching by ID, updating and deleting travel offers.
 
 8. **UserRoleService**: 
-- This service handles operations related to the UserRole entity. It provides methods to list, save, get by ID, update and delete user roles.
+	- This service handles operations related to the UserRole entity. It provides methods to list, save, get by ID, update and delete user roles.
 
 9. **UsersService**: 
-- This service class handles operations related to the Users entity. It provides methods to list, save, get by ID, update and delete users. It also implements the UserDetailsService interface for user authentication using Spring Security.
+	- This service class handles operations related to the Users entity. It provides methods to list, save, get by ID, update and delete users. It also implements the UserDetailsService interface for user authentication using Spring Security.
 
 ##### *controller package*
 
