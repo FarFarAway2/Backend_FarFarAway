@@ -22,6 +22,66 @@ The application offers the following functionalities and features:
 ------------
 ### ***Technical features***
 
+##### *dto Package*
+
+1. **HotelBook**: 
+ - Represents a hotel reservation. Contains references to a user and a hotel offer, indicating that a user has booked a specific hotel offer.
+
+2. **HotelManage**: 
+ - Represents the management of a hotel offer. Contains references to a user and a hotel offer, indicating that a specific user is managing a hotel offer.
+
+3. **HotelOffer**: 
+ - Represents a hotel offer. It contains attributes such as price, description, hotel name and image. It also maintains a list of the reservations and the management of the offer.
+
+4. **Roles**: 
+ - Represents a user role. It contains a name for the role. This model could be used in an authorization system.
+
+5. **TravelBook**: 
+ - Same as HotelBook, but for travel offers. Indicates that a user has booked a specific travel offer.
+
+6. **TravelManage**: 
+ - Same as HotelManage, but for travel offers. Indicates that a specific user is managing a travel offer.
+
+7. **TravelOffer**:
+ - Represents a travel offer. Like HotelOffer, it contains details of the offer and maintains a list of bookings and offer management.
+
+8. **UserRole**: 
+ - Associates a user with a role. It is useful to implement a system of roles and permissions.
+
+9. **Users**: 
+ - Represents a user in the system. Contains user information such as name, email, password, and more. It also maintains lists of hotel and travel offers, and the managements and reservations that the user has made.
+
+##### *dao Package*
+
+These interfaces allow interacting with the database and performing persistence operations on the corresponding entities.
+
+1. **IHotelBookDAO**: 
+ - This interface extends JpaRepository and is associated with the HotelBook class. It provides methods to perform CRUD operations on the HotelBook entity.
+
+2. **IHotelManageDAO**: 
+ - This interface extends JpaRepository and is associated with the HotelManage class. It provides methods to perform CRUD operations on the HotelManage entity.
+
+3. **IHotelOfferDAO**: 
+ - This interface extends JpaRepository and is associated with the HotelOffer class. It provides methods to perform CRUD operations on the HotelOffer entity.
+
+4. **IRolesDAO**: 
+ - This interface extends JpaRepository and is associated with the Roles class. It provides methods to perform CRUD operations on the Roles entity.
+
+5. **ITravelBookDAO**: 
+ - This interface extends JpaRepository and is associated with the TravelBook class. It provides methods to perform CRUD operations on the TravelBook entity.
+
+6. **ITravelManageDAO**: 
+ - This interface extends JpaRepository and is associated with the TravelManage class. It provides methods to perform CRUD operations on the TravelManage entity.
+
+7. **ITravelOfferDAO**: 
+ - This interface extends JpaRepository and is associated with the TravelOffer class. It provides methods to perform CRUD operations on the TravelOffer entity.
+
+8. **IUserRoleDAO**: 
+ - This interface extends JpaRepository and is associated with the UserRole class. It provides methods to perform CRUD operations on the UserRole entity.
+
+9. **IUsersDAO**: 
+ - This interface extends JpaRepository and is associated with the Users class. It provides methods to perform CRUD operations on the Users entity. In addition, it includes a custom method findByEmail to search for users by their e-mail address.
+
 ##### *controller package*
 
 1. **HotelBookController**:
@@ -55,35 +115,6 @@ The application offers the following functionalities and features:
 8. **TravelOfferController**:
    - Controls HTTP requests related to travel offers.
    - It includes methods to list all travel offers, save a new offer, get an offer by its ID, update an existing offer and delete an offer.
-
-##### *dto Package*
-
-1. **HotelBook**: 
- - Represents a hotel reservation. Contains references to a user and a hotel offer, indicating that a user has booked a specific hotel offer.
-
-2. **HotelManage**: 
- - Represents the management of a hotel offer. Contains references to a user and a hotel offer, indicating that a specific user is managing a hotel offer.
-
-3. **HotelOffer**: 
- - Represents a hotel offer. It contains attributes such as price, description, hotel name and image. It also maintains a list of the reservations and the management of the offer.
-
-4. **Roles**: 
- - Represents a user role. It contains a name for the role. This model could be used in an authorization system.
-
-5. **TravelBook**: 
- - Same as HotelBook, but for travel offers. Indicates that a user has booked a specific travel offer.
-
-6. **TravelManage**: 
- - Same as HotelManage, but for travel offers. Indicates that a specific user is managing a travel offer.
-
-7. **TravelOffer**:
- - Represents a travel offer. Like HotelOffer, it contains details of the offer and maintains a list of bookings and offer management.
-
-8. **UserRole**: 
- - Associates a user with a role. It is useful to implement a system of roles and permissions.
-
-9. **Users**: 
- - Represents a user in the system. Contains user information such as name, email, password, and more. It also maintains lists of hotel and travel offers, and the managements and reservations that the user has made.
 
 ------------
 
