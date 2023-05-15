@@ -37,17 +37,16 @@ public class TravelBookController {
 
 	@PutMapping("/travelbooks/{id}")
 	public TravelBook updateTravelBook(@PathVariable(name = "id") Long id, @RequestBody TravelBook travelBook) {
+		TravelBook travelBookSelected = new TravelBook();
+		TravelBook travelBookUpdated = new TravelBook();
 
-		TravelBook travelBookSeleccionado = new TravelBook();
-		TravelBook travelBookActualizado = new TravelBook();
+		travelBookSelected = travelBookService.travelBookXID(id);
+		travelBookSelected.setId_user(travelBook.getId_user());
+		travelBookSelected.setId_travel(travelBook.getId_travel());
 
-		travelBookSeleccionado = travelBookService.travelBookXID(id);
-		travelBookSeleccionado.setId_user(travelBook.getId_user());
-		travelBookSeleccionado.setId_travel(travelBook.getId_travel());
+		travelBookUpdated = travelBookService.updateTravelBook(travelBookSelected);
 
-		travelBookActualizado = travelBookService.updateTravelBook(travelBookSeleccionado);
-
-		return travelBookActualizado;
+		return travelBookUpdated;
 	}
 
 	@DeleteMapping("/travelbooks/{id}")

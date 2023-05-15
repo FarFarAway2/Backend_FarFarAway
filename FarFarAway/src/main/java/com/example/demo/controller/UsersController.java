@@ -37,24 +37,22 @@ public class UsersController {
 
 	@PutMapping("/users/{id}")
 	public Users actualizarUsers(@PathVariable(name = "id") Long id, @RequestBody Users users) {
+		Users usersSelected = new Users();
+		Users usersUpdated = new Users();
 
-		Users usersSeleccionada = new Users();
-		Users usersActualizada = new Users();
+		usersSelected = usersService.usersXID(id);
+		usersSelected.setAge(users.getAge());
+		usersSelected.setUser_password(users.getUser_password());
+		usersSelected.setEmail(users.getEmail());
+		usersSelected.setUser_name(users.getUser_name());
+		usersSelected.setSurname(users.getSurname());
+		usersSelected.setPhone_number(users.getPhone_number());
+		usersSelected.setFiscal_name(users.getFiscal_name());
+		usersSelected.setCompany_cif(users.getCompany_cif());
 
-		usersSeleccionada = usersService.usersXID(id);
+		usersUpdated = usersService.updateUsers(usersSelected);
 
-		usersSeleccionada.setAge(users.getAge());
-		usersSeleccionada.setUser_password(users.getUser_password());
-		usersSeleccionada.setEmail(users.getEmail());
-		usersSeleccionada.setUser_name(users.getUser_name());
-		usersSeleccionada.setSurname(users.getSurname());
-		usersSeleccionada.setPhone_number(users.getPhone_number());
-		usersSeleccionada.setFiscal_name(users.getFiscal_name());
-		usersSeleccionada.setCompany_cif(users.getCompany_cif());
-
-		usersActualizada = usersService.updateUsers(usersSeleccionada);
-
-		return usersActualizada;
+		return usersUpdated;
 	}
 
 	@DeleteMapping("/users/{id}")

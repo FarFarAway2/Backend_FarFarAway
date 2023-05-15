@@ -11,25 +11,25 @@ import com.example.demo.dto.Roles;
 @Service
 public class RolesService {
 	@Autowired
-	IRolesDAO RolesDAO;
+	IRolesDAO iRolesDAO;
 
 	public List<Roles> listRoles() {
-		return RolesDAO.findAll();
+		return iRolesDAO.findAll();
 	}
 
 	public Roles saveRoles(Roles Roles) {
-		return RolesDAO.save(Roles);
+		return iRolesDAO.save(Roles);
 	}
 
 	public Roles rolesXID(Long id) {
-		return RolesDAO.findById(id).get();
+		return iRolesDAO.findById(id).get();
 	}
 
 	public Roles updateRoles(Roles Roles) {
-		return RolesDAO.save(Roles);
+		return iRolesDAO.save(Roles);
 	}
 
 	public void deleteRoles(Long id) {
-		RolesDAO.deleteById(id);
+		iRolesDAO.deleteById(id);
 	}
 }

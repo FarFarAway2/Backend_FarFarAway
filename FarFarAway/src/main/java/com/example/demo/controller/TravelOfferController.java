@@ -37,24 +37,23 @@ public class TravelOfferController {
 
 	@PutMapping("/traveloffers/{id}")
 	public TravelOffer actualizarTravelOffer(@PathVariable(name = "id") Long id, @RequestBody TravelOffer travelOffer) {
+		TravelOffer travelOfferSelected = new TravelOffer();
+		TravelOffer travelOfferUpdated = new TravelOffer();
 
-		TravelOffer travelOfferSeleccionado = new TravelOffer();
-		TravelOffer travelOfferActualizado = new TravelOffer();
+		travelOfferSelected = travelOfferService.travelOfferXID(id);
+		travelOfferSelected.setPrice(travelOffer.getPrice());
+		travelOfferSelected.setImage(travelOffer.getImage());
+		travelOfferSelected.setDescription(travelOffer.getDescription());
+		travelOfferSelected.setTravel_name(travelOffer.getTravel_name());
+		travelOfferSelected.setTransport(travelOffer.getTransport());
+		travelOfferSelected.setExpire_date(travelOffer.getExpire_date());
+		travelOfferSelected.setTravel_type(travelOffer.getTravel_type());
+		travelOfferSelected.setTitle(travelOffer.getTitle());
+		travelOfferSelected.setId_user(travelOffer.getId_user());
 
-		travelOfferSeleccionado = travelOfferService.travelOfferXID(id);
-		travelOfferSeleccionado.setPrice(travelOffer.getPrice());
-		travelOfferSeleccionado.setImage(travelOffer.getImage());
-		travelOfferSeleccionado.setDescription(travelOffer.getDescription());
-		travelOfferSeleccionado.setTravel_name(travelOffer.getTravel_name());
-		travelOfferSeleccionado.setTransport(travelOffer.getTransport());
-		travelOfferSeleccionado.setExpire_date(travelOffer.getExpire_date());
-		travelOfferSeleccionado.setTravel_type(travelOffer.getTravel_type());
-		travelOfferSeleccionado.setTitle(travelOffer.getTitle());
-		travelOfferSeleccionado.setId_user(travelOffer.getId_user());
+		travelOfferUpdated = travelOfferService.updateTravelOffer(travelOfferSelected);
 
-		travelOfferActualizado = travelOfferService.updateTravelOffer(travelOfferSeleccionado);
-
-		return travelOfferActualizado;
+		return travelOfferUpdated;
 	}
 
 	@DeleteMapping("/traveloffers/{id}")

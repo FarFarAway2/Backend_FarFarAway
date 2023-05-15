@@ -11,25 +11,25 @@ import com.example.demo.dto.HotelManage;
 @Service
 public class HotelManageService {
 	@Autowired
-	IHotelManageDAO hotelManageDAO;
+	IHotelManageDAO ihotelManageDAO;
 
 	public List<HotelManage> listHotelManage() {
-		return hotelManageDAO.findAll();
+		return ihotelManageDAO.findAll();
 	}
 
 	public HotelManage saveHotelManage(HotelManage hotelManage) {
-		return hotelManageDAO.save(hotelManage);
+		return ihotelManageDAO.save(hotelManage);
 	}
 
 	public HotelManage hotelManageXID(Long id) {
-		return hotelManageDAO.findById(id).get();
+		return ihotelManageDAO.findById(id).get();
 	}
 
 	public HotelManage updateHotelManage(HotelManage hotelManage) {
-		return hotelManageDAO.save(hotelManage);
+		return ihotelManageDAO.save(hotelManage);
 	}
 
 	public void deleteHotelManage(Long id) {
-		hotelManageDAO.deleteById(id);
+		ihotelManageDAO.deleteById(id);
 	}
 }

@@ -37,17 +37,15 @@ public class RolesController {
 
 	@PutMapping("/roles/{id}")
 	public Roles updateRoles(@PathVariable(name = "id") Long id, @RequestBody Roles roles) {
+		Roles rolesSelected = new Roles();
+		Roles rolesUpdated = new Roles();
 
-		Roles rolesSeleccionada = new Roles();
-		Roles rolesActualizada = new Roles();
+		rolesSelected = rolesService.rolesXID(id);
+		rolesSelected.setRole_name(roles.getRole_name());
 
-		rolesSeleccionada = rolesService.rolesXID(id);
+		rolesUpdated = rolesService.updateRoles(rolesSelected);
 
-		rolesSeleccionada.setRole_name(roles.getRole_name());
-
-		rolesActualizada = rolesService.updateRoles(rolesSeleccionada);
-
-		return rolesActualizada;
+		return rolesUpdated;
 	}
 
 	@DeleteMapping("/roles/{id}")

@@ -37,17 +37,16 @@ public class UserRoleController {
 
 	@PutMapping("/userroles/{id}")
 	public UserRole updateUserRole(@PathVariable(name = "id") Long id, @RequestBody UserRole userRole) {
+		UserRole userRoleSelected = new UserRole();
+		UserRole userRoleUpdated = new UserRole();
 
-		UserRole userRoleSeleccionado = new UserRole();
-		UserRole userRoleActualizado = new UserRole();
+		userRoleSelected = userRoleService.userRoleXID(id);
+		userRoleSelected.setId_user(userRole.getId_user());
+		userRoleSelected.setId_role(userRole.getId_role());
 
-		userRoleSeleccionado = userRoleService.userRoleXID(id);
-		userRoleSeleccionado.setId_user(userRole.getId_user());
-		userRoleSeleccionado.setId_role(userRole.getId_role());
+		userRoleUpdated = userRoleService.updateUserRole(userRoleSelected);
 
-		userRoleActualizado = userRoleService.updateUserRole(userRoleSeleccionado);
-
-		return userRoleActualizado;
+		return userRoleUpdated;
 	}
 
 	@DeleteMapping("/userroles/{id}")

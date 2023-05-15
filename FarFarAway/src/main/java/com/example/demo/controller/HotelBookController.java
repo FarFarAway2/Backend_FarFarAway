@@ -37,18 +37,16 @@ public class HotelBookController {
 
 	@PutMapping("/hotelbooks/{id}")
 	public HotelBook updateHotelBook(@PathVariable(name = "id") Long id, @RequestBody HotelBook hotelBook) {
+		HotelBook hotelBookSelected = new HotelBook();
+		HotelBook hotelBookUpdated = new HotelBook();
 
-		HotelBook hotelBookSeleccionado = new HotelBook();
-		HotelBook hotelBookActualizado = new HotelBook();
+		hotelBookSelected = hotelBookService.hotelBookXID(id);
+		hotelBookSelected.setId_user(hotelBook.getId_user());
+		hotelBookSelected.setId_hotel(hotelBook.getId_hotel());
 
-		hotelBookSeleccionado = hotelBookService.hotelBookXID(id);
-		;
-		hotelBookSeleccionado.setId_user(hotelBook.getId_user());
-		hotelBookSeleccionado.setId_hotel(hotelBook.getId_hotel());
+		hotelBookUpdated = hotelBookService.updateHotelBook(hotelBookSelected);
 
-		hotelBookActualizado = hotelBookService.updateHotelBook(hotelBookSeleccionado);
-
-		return hotelBookActualizado;
+		return hotelBookUpdated;
 	}
 
 	@DeleteMapping("/hotelbooks/{id}")

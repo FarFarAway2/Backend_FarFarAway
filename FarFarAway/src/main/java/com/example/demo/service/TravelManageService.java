@@ -11,25 +11,25 @@ import com.example.demo.dto.TravelManage;
 @Service
 public class TravelManageService {
 	@Autowired
-	ITravelManageDAO travelManageDAO;
+	ITravelManageDAO iTravelManageDAO;
 
 	public List<TravelManage> listTravelManage() {
-		return travelManageDAO.findAll();
+		return iTravelManageDAO.findAll();
 	}
 
 	public TravelManage saveTravelManage(TravelManage travelManage) {
-		return travelManageDAO.save(travelManage);
+		return iTravelManageDAO.save(travelManage);
 	}
 
 	public TravelManage travelManageXID(Long id) {
-		return travelManageDAO.findById(id).get();
+		return iTravelManageDAO.findById(id).get();
 	}
 
 	public TravelManage updateTravelManage(TravelManage travelManage) {
-		return travelManageDAO.save(travelManage);
+		return iTravelManageDAO.save(travelManage);
 	}
 
 	public void deleteTravelManage(Long id) {
-		travelManageDAO.deleteById(id);
+		iTravelManageDAO.deleteById(id);
 	}
 }

@@ -38,17 +38,16 @@ public class HotelManageController {
 	@PutMapping("/hotelmanages/{id}")
 	public HotelManage updateHotelManage(@PathVariable(name = "id") Long id,
 			@RequestBody HotelManage hotelManage) {
+		HotelManage hotelManageSelected = new HotelManage();
+		HotelManage hotelManageUpdated = new HotelManage();
 
-		HotelManage hotelManageSeleccionado = new HotelManage();
-		HotelManage hotelManageActualizado = new HotelManage();
+		hotelManageSelected = hotelManageService.hotelManageXID(id);
+		hotelManageSelected.setId_user(hotelManage.getId_user());
+		hotelManageSelected.setId_hotel(hotelManage.getId_hotel());
 
-		hotelManageSeleccionado = hotelManageService.hotelManageXID(id);
-		hotelManageSeleccionado.setId_user(hotelManage.getId_user());
-		hotelManageSeleccionado.setId_hotel(hotelManage.getId_hotel());
+		hotelManageUpdated = hotelManageService.updateHotelManage(hotelManageSelected);
 
-		hotelManageActualizado = hotelManageService.updateHotelManage(hotelManageSeleccionado);
-
-		return hotelManageActualizado;
+		return hotelManageUpdated;
 	}
 
 	@DeleteMapping("/hotelmanages/{id}")

@@ -11,25 +11,25 @@ import com.example.demo.dto.Users;
 @Service
 public class UsersService {
 	@Autowired
-	IUsersDAO UsersDAO;
+	IUsersDAO iUsersDAO;
 
 	public List<Users> listUsers() {
-		return UsersDAO.findAll();
+		return iUsersDAO.findAll();
 	}
 
 	public Users saveUsers(Users Users) {
-		return UsersDAO.save(Users);
+		return iUsersDAO.save(Users);
 	}
 
 	public Users usersXID(Long id) {
-		return UsersDAO.findById(id).get();
+		return iUsersDAO.findById(id).get();
 	}
 
 	public Users updateUsers(Users Users) {
-		return UsersDAO.save(Users);
+		return iUsersDAO.save(Users);
 	}
 
 	public void deleteUsers(Long id) {
-		UsersDAO.deleteById(id);
+		iUsersDAO.deleteById(id);
 	}
 }

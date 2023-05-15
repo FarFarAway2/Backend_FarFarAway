@@ -37,25 +37,24 @@ public class HotelOfferController {
 
 	@PutMapping("/hoteloffers/{id}")
 	public HotelOffer actualizarHotelOffer(@PathVariable(name = "id") Long id, @RequestBody HotelOffer hotelOffer) {
+		HotelOffer hotelOfferSelected = new HotelOffer();
+		HotelOffer hotelOfferUpdated = new HotelOffer();
 
-		HotelOffer hotelOfferSeleccionado = new HotelOffer();
-		HotelOffer hotelOfferActualizado = new HotelOffer();
+		hotelOfferSelected = hotelOfferService.hotelOfferXID(id);
+		hotelOfferSelected.setPrice(hotelOffer.getPrice());
+		hotelOfferSelected.setRating(hotelOffer.getRating());
+		hotelOfferSelected.setImage(hotelOffer.getImage());
+		hotelOfferSelected.setExpire_date(hotelOffer.getExpire_date());
+		hotelOfferSelected.setLongitude(hotelOffer.getLongitude());
+		hotelOfferSelected.setLatitude(hotelOffer.getLatitude());
+		hotelOfferSelected.setLocation(hotelOffer.getLocation());
+		hotelOfferSelected.setHotel_name(hotelOffer.getHotel_name());
+		hotelOfferSelected.setTitle(hotelOffer.getTitle());
+		hotelOfferSelected.setId_user(hotelOffer.getId_user());
 
-		hotelOfferSeleccionado = hotelOfferService.hotelOfferXID(id);
-		hotelOfferSeleccionado.setPrice(hotelOffer.getPrice());
-		hotelOfferSeleccionado.setRating(hotelOffer.getRating());
-		hotelOfferSeleccionado.setImage(hotelOffer.getImage());
-		hotelOfferSeleccionado.setExpire_date(hotelOffer.getExpire_date());
-		hotelOfferSeleccionado.setLongitude(hotelOffer.getLongitude());
-		hotelOfferSeleccionado.setLatitude(hotelOffer.getLatitude());
-		hotelOfferSeleccionado.setLocation(hotelOffer.getLocation());
-		hotelOfferSeleccionado.setHotel_name(hotelOffer.getHotel_name());
-		hotelOfferSeleccionado.setTitle(hotelOffer.getTitle());
-		hotelOfferSeleccionado.setId_user(hotelOffer.getId_user());
+		hotelOfferUpdated = hotelOfferService.updateHotelOffer(hotelOfferSelected);
 
-		hotelOfferActualizado = hotelOfferService.updateHotelOffer(hotelOfferSeleccionado);
-
-		return hotelOfferActualizado;
+		return hotelOfferUpdated;
 	}
 
 	@DeleteMapping("/hoteloffers/{id}")

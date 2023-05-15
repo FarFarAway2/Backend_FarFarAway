@@ -11,25 +11,25 @@ import com.example.demo.dto.HotelBook;
 @Service
 public class HotelBookService {
 	@Autowired
-	IHotelBookDAO hotelBookDAO;
+	IHotelBookDAO ihotelBookDAO;
 
 	public List<HotelBook> listHotelBooks() {
-		return hotelBookDAO.findAll();
+		return ihotelBookDAO.findAll();
 	}
 
 	public HotelBook saveHotelBook(HotelBook hotelBook) {
-		return hotelBookDAO.save(hotelBook);
+		return ihotelBookDAO.save(hotelBook);
 	}
 
 	public HotelBook hotelBookXID(Long id) {
-		return hotelBookDAO.findById(id).get();
+		return ihotelBookDAO.findById(id).get();
 	}
 
 	public HotelBook updateHotelBook(HotelBook hotelBook) {
-		return hotelBookDAO.save(hotelBook);
+		return ihotelBookDAO.save(hotelBook);
 	}
 
 	public void deleteHotelBook(Long id) {
-		hotelBookDAO.deleteById(id);
+		ihotelBookDAO.deleteById(id);
 	}
 }

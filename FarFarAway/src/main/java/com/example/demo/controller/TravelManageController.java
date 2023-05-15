@@ -38,17 +38,16 @@ public class TravelManageController {
 	@PutMapping("/travelmanages/{id}")
 	public TravelManage updateTravelManage(@PathVariable(name = "id") Long id,
 			@RequestBody TravelManage travelManage) {
+		TravelManage travelManageSelected = new TravelManage();
+		TravelManage travelManageUpdated = new TravelManage();
 
-		TravelManage travelManageSeleccionado = new TravelManage();
-		TravelManage travelManageActualizado = new TravelManage();
+		travelManageSelected = travelManageService.travelManageXID(id);
+		travelManageSelected.setId_user(travelManage.getId_user());
+		travelManageSelected.setId_travel(travelManage.getId_travel());
 
-		travelManageSeleccionado = travelManageService.travelManageXID(id);
-		travelManageSeleccionado.setId_user(travelManage.getId_user());
-		travelManageSeleccionado.setId_travel(travelManage.getId_travel());
+		travelManageUpdated = travelManageService.updateTravelManage(travelManageSelected);
 
-		travelManageActualizado = travelManageService.updateTravelManage(travelManageSeleccionado);
-
-		return travelManageActualizado;
+		return travelManageUpdated;
 	}
 
 	@DeleteMapping("/travelmanages/{id}")
