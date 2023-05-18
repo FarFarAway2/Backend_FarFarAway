@@ -49,6 +49,7 @@ public class UsersController {
 		usersSelected.setPhone_number(users.getPhone_number());
 		usersSelected.setFiscal_name(users.getFiscal_name());
 		usersSelected.setCompany_cif(users.getCompany_cif());
+		usersSelected.setUser_active(users.getUser_active());
 
 		usersUpdated = usersService.updateUsers(usersSelected);
 

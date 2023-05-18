@@ -49,6 +49,7 @@ public class TravelOfferController {
 		travelOfferSelected.setExpire_date(travelOffer.getExpire_date());
 		travelOfferSelected.setTravel_type(travelOffer.getTravel_type());
 		travelOfferSelected.setTitle(travelOffer.getTitle());
+		travelOfferSelected.setTravel_active(travelOffer.getTravel_active());
 		travelOfferSelected.setId_user(travelOffer.getId_user());
 
 		travelOfferUpdated = travelOfferService.updateTravelOffer(travelOfferSelected);
