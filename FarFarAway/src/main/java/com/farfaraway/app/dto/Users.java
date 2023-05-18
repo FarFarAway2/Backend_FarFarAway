@@ -25,6 +25,8 @@ public class Users {
 	private Long age;
 
 	private String user_password, user_name, email, surname, phone_number, fiscal_name, company_cif;
+	
+	private boolean user_active;
 
 	@OneToMany
 	@JoinColumn(name = "id_user")
@@ -59,7 +61,7 @@ public class Users {
 	}
 
 	public Users(String user_password, String user_name, String email, String surname,
-			String phone_number, String fisical_name, String company_cif, Long age) {
+			String phone_number, String fisical_name, String company_cif, Long age, boolean user_active) {
 		this.age = age;
 		this.user_password = user_password;
 		this.user_name = user_name;
@@ -69,6 +71,7 @@ public class Users {
 		// for a company
 		this.fiscal_name = fisical_name;
 		this.company_cif = company_cif;
+		this.user_active = user_active;
 	}
 
 	public Long getId_user() {
@@ -126,6 +129,14 @@ public class Users {
 
 	public void setCompany_cif(String company_cif) {
 		this.company_cif = company_cif;
+	}
+	
+	public boolean getUser_active() {
+		return user_active;
+	}
+
+	public void setUser_active(boolean user_active) {
+		this.user_active = user_active;
 	}
 
 	@JsonIgnore

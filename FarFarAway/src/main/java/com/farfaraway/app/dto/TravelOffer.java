@@ -26,6 +26,8 @@ public class TravelOffer {
 
 	private String image, description, travel_name, transport, expire_date, travel_type, title;
 
+	private boolean travel_active;
+
 	@OneToMany
 	@JoinColumn(name = "id_hotel")
 	private List<HotelManage> hotel_man;
@@ -50,8 +52,8 @@ public class TravelOffer {
 
 	}
 
-	public TravelOffer(Long price, String image, String description, String travel_name,
-			String transport, String expire_date, String travel_type, String title, Users id_user) {
+	public TravelOffer(Long price, String image, String description, String travel_name, String transport,
+			String expire_date, String travel_type, String title, boolean travel_active, Users id_user) {
 		this.image = image;
 		this.description = description;
 		this.travel_name = travel_name;
@@ -59,6 +61,7 @@ public class TravelOffer {
 		this.expire_date = expire_date;
 		this.travel_type = travel_type;
 		this.title = title;
+		this.travel_active = travel_active;
 		this.id_user = id_user;
 	}
 
@@ -133,6 +136,22 @@ public class TravelOffer {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
+	public Users getId_user() {
+		return id_user;
+	}
+
+	public void setId_user(Users id_user) {
+		this.id_user = id_user;
+	}
+
+	public boolean getTravel_active() {
+		return travel_active;
+	}
+
+	public void setTravel_active(boolean travel_active) {
+		this.travel_active = travel_active;
+	}
 
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelManage")
@@ -173,13 +192,4 @@ public class TravelOffer {
 	public void setTravel_book(List<TravelBook> TravelBook) {
 		this.TravelBook = TravelBook;
 	}
-
-	public Users getId_user() {
-		return id_user;
-	}
-
-	public void setId_user(Users id_user) {
-		this.id_user = id_user;
-	}
-
 }

@@ -26,6 +26,8 @@ public class HotelOffer {
 
 	private String image, expire_date, longitude, latitude, location, hotel_name, title;
 
+	private boolean hotel_active;
+	
 	@OneToMany
 	@JoinColumn(name = "id_hotel")
 	private List<HotelManage> HotelManage;
@@ -51,7 +53,7 @@ public class HotelOffer {
 	}
 
 	public HotelOffer(String image, String longitude, String latitude, String hotel_name,
-			String expire_date, String location, String title, Users id_user) {
+			String expire_date, String location, String title, boolean hotel_active, Users id_user) {
 		this.image = image;
 		this.longitude = longitude;
 		this.latitude = latitude;
@@ -59,6 +61,7 @@ public class HotelOffer {
 		this.expire_date = expire_date;
 		this.location = location;
 		this.title = title;
+		this.hotel_active = hotel_active;
 		this.id_user = id_user;
 	}
 
@@ -140,6 +143,14 @@ public class HotelOffer {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public boolean getHotel_active() {
+		return hotel_active;
+	}
+
+	public void setHotel_active(boolean hotel_active) {
+		this.hotel_active = hotel_active;
 	}
 	
 	public Users getId_user() {
