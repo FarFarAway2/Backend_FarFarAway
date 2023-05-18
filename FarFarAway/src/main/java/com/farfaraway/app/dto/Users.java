@@ -138,7 +138,16 @@ public class Users {
 	public void setUser_active(boolean user_active) {
 		this.user_active = user_active;
 	}
-
+	
+	@JsonIgnore
+	public String getUser_roleString() {
+		String roles = "";
+		for (UserRole role : user_role) {
+			roles += role;
+		}
+		return roles;
+	}
+	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "UserRole")
 	public List<UserRole> getUser_role() {

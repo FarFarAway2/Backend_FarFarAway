@@ -2,7 +2,6 @@ package com.farfaraway.app.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,11 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.farfaraway.app.dto.Users;
 import com.farfaraway.app.service.UsersService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
+@RequiredArgsConstructor
 public class UsersController {
 
-	@Autowired
-	UsersService usersService;
+	private final UsersService usersService;
 
 	@GetMapping("/users")
 	public List<Users> listarUserss() {
@@ -59,5 +60,15 @@ public class UsersController {
 	@DeleteMapping("/users/{id}")
 	public void eliminarUsers(@PathVariable(name = "id") Long id) {
 		usersService.deleteUsers(id);
+	}
+
+	@GetMapping("/users/{email}")
+	public Users getByEmail(@PathVariable("email") String email) {
+		return usersService.findByEmail(email);
+	}
+
+	@DeleteMapping("/users/{email}")
+	public void delete(@PathVariable("email") String email) {
+		usersService.deleteByEmail(email);
 	}
 }
