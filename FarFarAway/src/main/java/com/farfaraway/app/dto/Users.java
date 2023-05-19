@@ -17,6 +17,14 @@ import jakarta.persistence.Table;
 @Table(name = "Users")
 public class Users {
 
+	@Override
+	public String toString() {
+		return "Users [id_user=" + id_user + ", age=" + age + ", user_password=" + user_password + ", user_name="
+				+ user_name + ", email=" + email + ", surname=" + surname + ", phone_number=" + phone_number
+				+ ", fiscal_name=" + fiscal_name + ", company_cif=" + company_cif + ", user_active=" + user_active
+				+ ", user_role=" + user_role + "]";
+	}
+
 	// Attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +35,7 @@ public class Users {
 	private String user_password, user_name, email, surname, phone_number, fiscal_name, company_cif;
 	
 	private boolean user_active;
-
+	
 	@OneToMany
 	@JoinColumn(name = "id_user")
 	private List<UserRole> user_role;
@@ -149,7 +157,7 @@ public class Users {
 	}
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "UserRole")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "UserRole")
 	public List<UserRole> getUser_role() {
 		return user_role;
 	}
@@ -159,7 +167,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelOffer")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "HotelOffer")
 	public List<HotelOffer> getHotel_off() {
 		return hotel_off;
 	}
@@ -169,7 +177,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelOffer")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "TravelOffer")
 	public List<TravelOffer> getTravel_off() {
 		return travel_off;
 	}
@@ -179,7 +187,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelManage")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "HotelManage")
 	public List<HotelManage> getHotel_man() {
 		return hotel_man;
 	}
@@ -189,7 +197,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelManage")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "TravelManage")
 	public List<TravelManage> getTravel_man() {
 		return travel_man;
 	}
@@ -199,7 +207,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelBook")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "HotelBook")
 	public List<HotelBook> getHotel_book() {
 		return HotelBook;
 	}
@@ -209,7 +217,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelBook")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "TravelBook")
 	public List<TravelBook> getTravel_book() {
 		return TravelBook;
 	}

@@ -22,8 +22,16 @@ import com.farfaraway.app.jwt.JWTAuthenticationFilter;
 @EnableWebSecurity
 public class FarFarAwaySecurityConfig {
 
-    private static final String[] SECURED_URLs = {"/hoteloffers/**"};
+    // ADMIN URLs
+	private static final String[] SECURED_URLs = {"/hoteloffers/**"};
+    
+    // USER URLs 
+    private static final String[] USER_SECURED_URLs = {"/traveloffers/**"};
+    
+    // COMPANY URLs 
+	private static final String[] COMPANY_SECURED_URLs = { "/userroles/**" };
 
+    // OPEN URLs
     private static final String[] UN_SECURED_URLs = {
             "/users/**",
             "/login/**"
@@ -53,16 +61,22 @@ public class FarFarAwaySecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers(UN_SECURED_URLs).permitAll().and()
-                .authorizeHttpRequests().requestMatchers(SECURED_URLs)
-                .hasAuthority("ADMIN").anyRequest().authenticated()
-                .and().sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .authenticationProvider(authenticationProvider())
-                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                .build();
+        		.authorizeHttpRequests()
+		        .requestMatchers(UN_SECURED_URLs).permitAll()
+		        .and()
+		        .authorizeHttpRequests().requestMatchers(SECURED_URLs)
+		        .hasAuthority("ADMIN").and()
+		        .authorizeHttpRequests().requestMatchers(USER_SECURED_URLs)
+		        .hasAuthority("USER").and()
+		        .authorizeHttpRequests().requestMatchers(COMPANY_SECURED_URLs)
+		        .hasAuthority("COMPANY")
+		        .anyRequest().authenticated()
+		        .and().sessionManagement()
+		        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		        .and()
+		        .authenticationProvider(authenticationProvider())
+		        .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
+		        .build();
     }
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
