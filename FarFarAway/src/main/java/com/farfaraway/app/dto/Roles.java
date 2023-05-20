@@ -56,7 +56,7 @@ public class Roles {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "UserRole")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "UserRole")
 	public List<UserRole> getUser_role() {
 		return user_role;
 	}

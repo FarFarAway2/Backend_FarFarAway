@@ -36,6 +36,8 @@ public class Users {
 	
 	private boolean user_active;
 	
+	private String role_string;
+	
 	@OneToMany
 	@JoinColumn(name = "id_user")
 	private List<UserRole> user_role;
@@ -147,17 +149,16 @@ public class Users {
 		this.user_active = user_active;
 	}
 	
-	@JsonIgnore
-	public String getUser_roleString() {
-		String roles = "";
-		for (UserRole role : user_role) {
-			roles += role;
-		}
-		return roles;
+	public String getRoleString() {
+		return this.role_string;
+	}
+	
+	public void setRoleString(String role) {
+		this.role_string = role;
 	}
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "UserRole")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "UserRole")
 	public List<UserRole> getUser_role() {
 		return user_role;
 	}
@@ -167,7 +168,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "HotelOffer")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelOffer")
 	public List<HotelOffer> getHotel_off() {
 		return hotel_off;
 	}
@@ -177,7 +178,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "TravelOffer")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelOffer")
 	public List<TravelOffer> getTravel_off() {
 		return travel_off;
 	}
@@ -187,7 +188,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "HotelManage")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelManage")
 	public List<HotelManage> getHotel_man() {
 		return hotel_man;
 	}
@@ -197,7 +198,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "TravelManage")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelManage")
 	public List<TravelManage> getTravel_man() {
 		return travel_man;
 	}
@@ -207,7 +208,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "HotelBook")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "HotelBook")
 	public List<HotelBook> getHotel_book() {
 		return HotelBook;
 	}
@@ -217,7 +218,7 @@ public class Users {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "TravelBook")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TravelBook")
 	public List<TravelBook> getTravel_book() {
 		return TravelBook;
 	}
