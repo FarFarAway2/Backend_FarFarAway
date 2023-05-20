@@ -17,6 +17,14 @@ import jakarta.persistence.Table;
 @Table(name = "Users")
 public class Users {
 
+	@Override
+	public String toString() {
+		return "Users [id_user=" + id_user + ", age=" + age + ", user_password=" + user_password + ", user_name="
+				+ user_name + ", email=" + email + ", surname=" + surname + ", phone_number=" + phone_number
+				+ ", fiscal_name=" + fiscal_name + ", company_cif=" + company_cif + ", user_active=" + user_active
+				+ ", user_role=" + user_role + "]";
+	}
+
 	// Attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +35,9 @@ public class Users {
 	private String user_password, user_name, email, surname, phone_number, fiscal_name, company_cif;
 	
 	private boolean user_active;
-
+	
+	private String role_string;
+	
 	@OneToMany
 	@JoinColumn(name = "id_user")
 	private List<UserRole> user_role;
@@ -138,7 +148,15 @@ public class Users {
 	public void setUser_active(boolean user_active) {
 		this.user_active = user_active;
 	}
-
+	
+	public String getRoleString() {
+		return this.role_string;
+	}
+	
+	public void setRoleString(String role) {
+		this.role_string = role;
+	}
+	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "UserRole")
 	public List<UserRole> getUser_role() {
