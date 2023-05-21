@@ -22,12 +22,12 @@ public class UsersController {
 	private final UsersService usersService;
 
 	@GetMapping("/users")
-	public List<Users> listarUserss() {
+	public List<Users> listUserss() {
 		return usersService.listUsers();
 	}
 
 	@PostMapping("/users")
-	public Users salvarUsers(@RequestBody Users users) {
+	public Users saveUsers(@RequestBody Users users) {
 		return usersService.saveUsers(users);
 	}
 
@@ -37,7 +37,7 @@ public class UsersController {
 	}
 
 	@PutMapping("/users/{id}")
-	public Users actualizarUsers(@PathVariable(name = "id") Long id, @RequestBody Users users) {
+	public Users updateUsers(@PathVariable(name = "id") Long id, @RequestBody Users users) {
 		Users usersSelected = new Users();
 		Users usersUpdated = new Users();
 
@@ -58,7 +58,7 @@ public class UsersController {
 	}
 
 	@DeleteMapping("/users/{id}")
-	public void eliminarUsers(@PathVariable(name = "id") Long id) {
+	public void deleteUsers(@PathVariable(name = "id") Long id) {
 		usersService.deleteUsers(id);
 	}
 
