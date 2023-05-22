@@ -1,7 +1,5 @@
 package com.farfaraway.app.jwt;
 
-
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,11 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.farfaraway.app.exception.UserNotFoundException;
 import org.json.JSONObject;
-
-/**
- * @author Samson Effes
- */
-
 
 @RestController
 @RequiredArgsConstructor

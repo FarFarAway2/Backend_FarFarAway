@@ -16,10 +16,6 @@ import java.util.stream.Collectors;
 
 @Data
 public class FarFarAwayUserDetails implements UserDetails {
-
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private String userName;

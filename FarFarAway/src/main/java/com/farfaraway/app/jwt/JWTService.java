@@ -17,9 +17,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-/**
- * @author Samson Effes
- */
 @Service
 @AllArgsConstructor
 @NoArgsConstructor
