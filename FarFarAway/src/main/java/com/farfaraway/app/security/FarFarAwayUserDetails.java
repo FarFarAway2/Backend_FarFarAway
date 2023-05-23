@@ -25,7 +25,7 @@ public class FarFarAwayUserDetails implements UserDetails {
     public FarFarAwayUserDetails(Users user) {
     	userName = user.getEmail();
         password = user.getUser_password();    
-        authorities = Arrays.stream(user.getRoleString()
+        authorities = Arrays.stream(user.getRole_string()
                 .split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());

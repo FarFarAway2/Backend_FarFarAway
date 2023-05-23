@@ -4,6 +4,7 @@ import java.util.List;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ import com.farfaraway.app.exception.UserNotFoundException;
 @RequiredArgsConstructor
 public class UsersService implements IUserService{
 	private final UserRepository userRepository;
-	private final PasswordEncoder passwordEncoder;	
+	private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 	public List<Users> listUsers() {
 		return userRepository.findAll();

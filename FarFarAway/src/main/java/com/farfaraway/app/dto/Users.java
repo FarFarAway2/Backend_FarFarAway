@@ -70,8 +70,8 @@ public class Users {
 	public Users() {
 	}
 
-	public Users(String user_password, String user_name, String email, String surname,
-			String phone_number, String fisical_name, String company_cif, Long age, boolean user_active) {
+	public Users(Long age, String user_password, String user_name, String email, String surname,
+			String phone_number, String fisical_name, String company_cif, boolean user_active) {
 		this.age = age;
 		this.user_password = user_password;
 		this.user_name = user_name;
@@ -100,7 +100,6 @@ public class Users {
 		this.age = age;
 	}
 
-	@JsonIgnore
 	public String getUser_password() {
 		return user_password;
 	}
@@ -149,11 +148,11 @@ public class Users {
 		this.user_active = user_active;
 	}
 	
-	public String getRoleString() {
+	public String getRole_string() {
 		return this.role_string;
 	}
 	
-	public void setRoleString(String role) {
+	public void setRole_string(String role) {
 		this.role_string = role;
 	}
 	

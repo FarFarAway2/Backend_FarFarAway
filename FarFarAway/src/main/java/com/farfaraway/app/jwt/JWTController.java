@@ -30,6 +30,7 @@ public class JWTController {
             return jsonObject.toMap();//devuelve token por body
         }
         else {
+        	System.out.println("Invalid user credentials");
             throw new UserNotFoundException("Invalid user credentials");
         }
     }
