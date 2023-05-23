@@ -1,9 +1,11 @@
 package com.farfaraway.app.dto;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +26,10 @@ public class HotelOffer {
 
 	private Long price, rating;
 
-	private String image, expire_date, longitude, latitude, location, hotel_name, title;
+	private String image; 
+	@Column(name = "expire_date")
+	private LocalDate expireDate; 
+	private String longitude, latitude, location, hotel_name, title;
 
 	private boolean hotel_active;
 	
@@ -53,12 +58,12 @@ public class HotelOffer {
 	}
 
 	public HotelOffer(String image, String longitude, String latitude, String hotel_name,
-			String expire_date, String location, String title, boolean hotel_active, Users id_user) {
+			LocalDate expireDate, String location, String title, boolean hotel_active, Users id_user) {
 		this.image = image;
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.hotel_name = hotel_name;
-		this.expire_date = expire_date;
+		this.expireDate = expireDate;
 		this.location = location;
 		this.title = title;
 		this.hotel_active = hotel_active;
@@ -97,12 +102,12 @@ public class HotelOffer {
 		this.image = image;
 	}
 
-	public String getExpire_date() {
-		return expire_date;
+	public LocalDate getExpire_date() {
+		return expireDate;
 	}
 
-	public void setExpire_date(String expire_date) {
-		this.expire_date = expire_date;
+	public void setExpire_date(LocalDate expireDate) {
+		this.expireDate = expireDate;
 	}
 
 	public String getLongitude() {

@@ -1,5 +1,6 @@
 package com.farfaraway.app.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class HotelOfferController {
 	}
 
 	@PutMapping("/hoteloffers/{id}")
-	public HotelOffer actualizarHotelOffer(@PathVariable(name = "id") Long id, @RequestBody HotelOffer hotelOffer) {
+	public HotelOffer updateHotelOffer(@PathVariable(name = "id") Long id, @RequestBody HotelOffer hotelOffer) {
 		HotelOffer hotelOfferSelected = new HotelOffer();
 		HotelOffer hotelOfferUpdated = new HotelOffer();
 
@@ -59,7 +60,22 @@ public class HotelOfferController {
 	}
 
 	@DeleteMapping("/hoteloffers/{id}")
-	public void eliminarHotelOffer(@PathVariable(name = "id") Long id) {
+	public void deleteHotelOffer(@PathVariable(name = "id") Long id) {
 		hotelOfferService.deleteHotelOffer(id);
+	}
+	
+	@GetMapping("/hoteloffers/rating/{ratings}")
+	public List<HotelOffer> findByRating(@PathVariable(name = "ratings") List<Long> ratings) {
+		return hotelOfferService.findByRating(ratings);
+	}
+	
+	@GetMapping("/hoteloffers/price/{prices}")
+	public List<HotelOffer> findByPrice(@PathVariable(name = "prices") List<Long> prices) {
+		return hotelOfferService.findByPrice(prices.get(0), prices.get(1));
+	}
+	
+	@GetMapping("/hoteloffers/expiredate")
+	public List<HotelOffer> findByExpireDate() {
+		return hotelOfferService.findByExpireDate(LocalDate.now(), LocalDate.now().plusWeeks(1));
 	}
 }

@@ -1,5 +1,6 @@
 package com.farfaraway.app.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,18 @@ public class HotelOfferService {
 
 	public void deleteHotelOffer(Long id) {
 		ihotelOfferDAO.deleteById(id);
+	}
+
+	public List<HotelOffer> findByRating(List<Long> ratings) {
+		return ihotelOfferDAO.findByRatingIn(ratings);
+	}
+	
+	public List<HotelOffer> findByPrice(Long priceLow, Long priceTop) {
+		return ihotelOfferDAO.findByPriceBetween(priceLow, priceTop);
+	}
+	
+	public List<HotelOffer> findByExpireDate(LocalDate dateStart, LocalDate dateEnd) {
+		return ihotelOfferDAO.findByExpireDateBetween(dateStart, dateEnd);
 	}
 }
 

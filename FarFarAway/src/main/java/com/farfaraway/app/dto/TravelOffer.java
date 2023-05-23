@@ -1,9 +1,11 @@
 package com.farfaraway.app.dto;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +26,12 @@ public class TravelOffer {
 
 	private Long price;
 
-	private String image, description, travel_name, transport, expire_date, travel_type, title;
+	private String image, description, travel_name, transport;
+	@Column(name = "expire_date")
+	private LocalDate expireDate; 
+	@Column(name = "travel_type")
+	private String travelType;
+	private String title;
 
 	private boolean travel_active;
 
@@ -53,13 +60,13 @@ public class TravelOffer {
 	}
 
 	public TravelOffer(Long price, String image, String description, String travel_name, String transport,
-			String expire_date, String travel_type, String title, boolean travel_active, Users id_user) {
+			LocalDate expireDate, String travelType, String title, boolean travel_active, Users id_user) {
 		this.image = image;
 		this.description = description;
 		this.travel_name = travel_name;
 		this.transport = transport;
-		this.expire_date = expire_date;
-		this.travel_type = travel_type;
+		this.expireDate = expireDate;
+		this.travelType = travelType;
 		this.title = title;
 		this.travel_active = travel_active;
 		this.id_user = id_user;
@@ -113,20 +120,20 @@ public class TravelOffer {
 		this.transport = transport;
 	}
 
-	public String getExpire_date() {
-		return expire_date;
+	public LocalDate getExpire_date() {
+		return expireDate;
 	}
 
-	public void setExpire_date(String expire_date) {
-		this.expire_date = expire_date;
+	public void setExpire_date(LocalDate expireDate) {
+		this.expireDate = expireDate;
 	}
 
 	public String getTravel_type() {
-		return travel_type;
+		return travelType;
 	}
 
-	public void setTravel_type(String travel_type) {
-		this.travel_type = travel_type;
+	public void setTravel_type(String travelType) {
+		this.travelType = travelType;
 	}
 
 	public String getTitle() {

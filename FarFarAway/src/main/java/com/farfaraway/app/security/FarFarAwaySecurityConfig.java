@@ -22,16 +22,16 @@ import com.farfaraway.app.jwt.JWTAuthenticationFilter;
 public class FarFarAwaySecurityConfig {
 
 	// ADMIN URLs
-	private static final String[] SECURED_URLs = { "/hoteloffers/**" };
+	private static final String[] SECURED_URLs = {};
 
 	// USER URLs
-	private static final String[] USER_SECURED_URLs = { "/traveloffers/**" };
+	private static final String[] USER_SECURED_URLs = {};
 
 	// COMPANY URLs
-	private static final String[] COMPANY_SECURED_URLs = { "/userroles/**" };
+	private static final String[] COMPANY_SECURED_URLs = {};
 
 	// OPEN URLs
-	private static final String[] UN_SECURED_URLs = { "/users/**", "/login/**" };
+	private static final String[] UN_SECURED_URLs = { "/login/**", "/register/**", "/users/**", "/hoteloffers/**", "/traveloffers/**"  };
 
 	@Autowired
 	private JWTAuthenticationFilter authenticationFilter;

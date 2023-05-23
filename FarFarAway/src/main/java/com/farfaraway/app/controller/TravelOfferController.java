@@ -1,5 +1,6 @@
 package com.farfaraway.app.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.farfaraway.app.dto.HotelOffer;
 import com.farfaraway.app.dto.TravelOffer;
 import com.farfaraway.app.service.TravelOfferService;
 
@@ -36,7 +38,7 @@ public class TravelOfferController {
 	}
 
 	@PutMapping("/traveloffers/{id}")
-	public TravelOffer actualizarTravelOffer(@PathVariable(name = "id") Long id, @RequestBody TravelOffer travelOffer) {
+	public TravelOffer updateTravelOffer(@PathVariable(name = "id") Long id, @RequestBody TravelOffer travelOffer) {
 		TravelOffer travelOfferSelected = new TravelOffer();
 		TravelOffer travelOfferUpdated = new TravelOffer();
 
@@ -58,7 +60,22 @@ public class TravelOfferController {
 	}
 
 	@DeleteMapping("/traveloffers/{id}")
-	public void eliminarTravelOffer(@PathVariable(name = "id") Long id) {
+	public void deleteTravelOffer(@PathVariable(name = "id") Long id) {
 		travelOfferService.deleteTravelOffer(id);
+	}
+	
+	@GetMapping("/traveloffers/theme/{themes}")
+	public List<TravelOffer> findByRating(@PathVariable(name = "themes") List<String> themes) {
+		return travelOfferService.findByTheme(themes);
+	}
+	
+	@GetMapping("/traveloffers/price/{prices}")
+	public List<TravelOffer> findByPrice(@PathVariable(name = "prices") List<Long> prices) {
+		return travelOfferService.findByPrice(prices.get(0), prices.get(1));
+	}
+	
+	@GetMapping("/traveloffers/expiredate")
+	public List<TravelOffer> findByExpireDate() {
+		return travelOfferService.findByExpireDate(LocalDate.now(), LocalDate.now().plusWeeks(1));
 	}
 }
