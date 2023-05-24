@@ -78,4 +78,14 @@ public class HotelOfferController {
 	public List<HotelOffer> findByExpireDate() {
 		return hotelOfferService.findByExpireDate(LocalDate.now(), LocalDate.now().plusWeeks(1));
 	}
+	
+	@GetMapping("/hoteloffers/location/{location}")
+	public List<HotelOffer> findByLocation(@PathVariable(name = "location") String location) {
+		return hotelOfferService.findByLocation(location);
+	}
+	
+	@GetMapping("/hoteloffers/startdate")
+	public List<HotelOffer> findByStartDate() {
+		return hotelOfferService.findByExpireDate(LocalDate.now(), LocalDate.now().plusWeeks(1));
+	}
 }

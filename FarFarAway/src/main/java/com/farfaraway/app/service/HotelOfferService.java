@@ -45,5 +45,14 @@ public class HotelOfferService {
 	public List<HotelOffer> findByExpireDate(LocalDate dateStart, LocalDate dateEnd) {
 		return ihotelOfferDAO.findByExpireDateBetween(dateStart, dateEnd);
 	}
+	
+	public List<HotelOffer> findByLocation(String location) {
+		return ihotelOfferDAO.findByLocation(location);
+	}
+	
+	public List<HotelOffer> findByStartDateBetween(LocalDate dateStart, LocalDate dateEnd) {
+		return ihotelOfferDAO.findByStartDateBetween(dateStart, dateEnd);
+	}
 }
+
 

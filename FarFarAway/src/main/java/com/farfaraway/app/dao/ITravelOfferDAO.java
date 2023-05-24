@@ -11,4 +11,6 @@ public interface ITravelOfferDAO extends JpaRepository<TravelOffer, Long>{
 	List<TravelOffer> findByTravelTypeIn(List<String> themes);
 	List<TravelOffer> findByPriceBetween(Long priceLow, Long priceTop);
 	List<TravelOffer> findByExpireDateBetween(LocalDate dateStart, LocalDate dateEnd);
+	List<TravelOffer> findByDestination(String destination);
+	List<TravelOffer> findByStartDateBetween(LocalDate dateStart, LocalDate dateEnd);
 }

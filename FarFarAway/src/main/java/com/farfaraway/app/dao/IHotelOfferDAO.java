@@ -11,4 +11,6 @@ public interface IHotelOfferDAO extends JpaRepository<HotelOffer, Long>{
 	List<HotelOffer> findByRatingIn(List<Long> ratings);
 	List<HotelOffer> findByPriceBetween(Long priceLow, Long priceTop);
 	List<HotelOffer> findByExpireDateBetween(LocalDate dateStart, LocalDate dateEnd);
+	List<HotelOffer> findByLocation(String location);
+	List<HotelOffer> findByStartDateBetween(LocalDate dateStart, LocalDate dateEnd);
 }

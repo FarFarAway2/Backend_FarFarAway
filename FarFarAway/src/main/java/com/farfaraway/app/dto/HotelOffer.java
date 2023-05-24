@@ -26,13 +26,18 @@ public class HotelOffer {
 
 	private Long price, rating;
 
-	private String image; 
+	private String image;
 	@Column(name = "expire_date")
-	private LocalDate expireDate; 
+	private LocalDate expireDate;
 	private String longitude, latitude, location, hotel_name, title;
 
 	private boolean hotel_active;
-	
+
+	@Column(name = "start_date")
+	private LocalDate startDate;
+	@Column(name = "end_date")
+	private LocalDate endDate;
+
 	@OneToMany
 	@JoinColumn(name = "id_hotel")
 	private List<HotelManage> HotelManage;
@@ -57,8 +62,9 @@ public class HotelOffer {
 
 	}
 
-	public HotelOffer(String image, String longitude, String latitude, String hotel_name,
-			LocalDate expireDate, String location, String title, boolean hotel_active, Users id_user) {
+	public HotelOffer(String image, String longitude, String latitude, String hotel_name, LocalDate expireDate,
+			String location, String title, boolean hotel_active, Users id_user, LocalDate startDate,
+			LocalDate endDate) {
 		this.image = image;
 		this.longitude = longitude;
 		this.latitude = latitude;
@@ -68,6 +74,8 @@ public class HotelOffer {
 		this.title = title;
 		this.hotel_active = hotel_active;
 		this.id_user = id_user;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	public Long getId_hotel() {
@@ -149,7 +157,7 @@ public class HotelOffer {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
 	public boolean getHotel_active() {
 		return hotel_active;
 	}
@@ -157,7 +165,23 @@ public class HotelOffer {
 	public void setHotel_active(boolean hotel_active) {
 		this.hotel_active = hotel_active;
 	}
-	
+
+	public LocalDate getStart_date() {
+		return startDate;
+	}
+
+	public void setStart_date(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDate getEnd_date() {
+		return endDate;
+	}
+
+	public void setEnd_date(LocalDate endDate) {
+		this.endDate = endDate;
+	}
+
 	public Users getId_user() {
 		return id_user;
 	}

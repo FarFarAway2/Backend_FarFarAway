@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.farfaraway.app.dto.HotelOffer;
 import com.farfaraway.app.dto.TravelOffer;
 import com.farfaraway.app.service.TravelOfferService;
 
@@ -77,5 +76,15 @@ public class TravelOfferController {
 	@GetMapping("/traveloffers/expiredate")
 	public List<TravelOffer> findByExpireDate() {
 		return travelOfferService.findByExpireDate(LocalDate.now(), LocalDate.now().plusWeeks(1));
+	}
+	
+	@GetMapping("/traveloffers/destination/{destination}")
+	public List<TravelOffer> findByDestination(@PathVariable(name = "destination") String destination) {
+		return travelOfferService.findByDestination(destination);
+	}
+	
+	@GetMapping("/traveloffers/startdate")
+	public List<TravelOffer> findByStartDate() {
+		return travelOfferService.findByStartDateBetween(LocalDate.now(), LocalDate.now().plusWeeks(1));
 	}
 }

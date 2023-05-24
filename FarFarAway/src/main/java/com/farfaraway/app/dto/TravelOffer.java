@@ -28,12 +28,19 @@ public class TravelOffer {
 
 	private String image, description, travel_name, transport;
 	@Column(name = "expire_date")
-	private LocalDate expireDate; 
+	private LocalDate expireDate;
 	@Column(name = "travel_type")
 	private String travelType;
 	private String title;
 
 	private boolean travel_active;
+
+	private String destination;
+
+	@Column(name = "start_date")
+	private LocalDate startDate;
+	@Column(name = "end_date")
+	private LocalDate endDate;
 
 	@OneToMany
 	@JoinColumn(name = "id_hotel")
@@ -60,7 +67,8 @@ public class TravelOffer {
 	}
 
 	public TravelOffer(Long price, String image, String description, String travel_name, String transport,
-			LocalDate expireDate, String travelType, String title, boolean travel_active, Users id_user) {
+			LocalDate expireDate, String travelType, String title, boolean travel_active, Users id_user,
+			String destination, LocalDate startDate, LocalDate endDate) {
 		this.image = image;
 		this.description = description;
 		this.travel_name = travel_name;
@@ -70,6 +78,8 @@ public class TravelOffer {
 		this.title = title;
 		this.travel_active = travel_active;
 		this.id_user = id_user;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	public Long getId_travel() {
@@ -144,6 +154,30 @@ public class TravelOffer {
 		this.title = title;
 	}
 	
+	public String getDestination() {
+		return destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public LocalDate getStart_date() {
+		return startDate;
+	}
+
+	public void setStart_date(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDate getEnd_date() {
+		return endDate;
+	}
+
+	public void setEnd_date(LocalDate endDate) {
+		this.endDate = endDate;
+	}
+
 	public Users getId_user() {
 		return id_user;
 	}
