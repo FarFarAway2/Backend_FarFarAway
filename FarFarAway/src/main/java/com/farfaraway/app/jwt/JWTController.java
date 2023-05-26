@@ -16,12 +16,12 @@ import org.json.JSONObject;
 @RestController
 @RequiredArgsConstructor
 //@CrossOrigin(origins = "https://main.df7xyjdxqxvgb.amplifyapp.com/")
-@CrossOrigin(origins = "localhost:4200")
 @RequestMapping("/login")
 public class JWTController {
     private final JWTService jwtService;
     private final AuthenticationManager authenticationManager;
 
+    @CrossOrigin(origins = "localhost:4200/login")
     @PostMapping
     public Object getTokenForAuthenticatedUser(@RequestBody JWTAuthenticationRequest authRequest){
         Authentication authentication = authenticationManager
