@@ -16,7 +16,7 @@ import org.json.JSONObject;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/login")
-@CrossOrigin(origins = "https://main.df7xyjdxqxvgb.amplifyapp.com")
+@CrossOrigin(origins = "*")
 public class JWTController {
     private final JWTService jwtService;
     private final AuthenticationManager authenticationManager;

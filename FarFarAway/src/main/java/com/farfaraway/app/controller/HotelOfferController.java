@@ -17,7 +17,7 @@ import com.farfaraway.app.dto.HotelOffer;
 import com.farfaraway.app.service.HotelOfferService;
 
 @RestController
-@CrossOrigin(origins = "https://main.df7xyjdxqxvgb.amplifyapp.com, localhost:4200")
+@CrossOrigin(origins = "*")
 public class HotelOfferController {
 
 	@Autowired
