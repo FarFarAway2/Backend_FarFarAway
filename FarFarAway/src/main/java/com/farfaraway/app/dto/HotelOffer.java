@@ -29,7 +29,7 @@ public class HotelOffer {
 	private String image;
 	@Column(name = "expire_date")
 	private LocalDate expireDate;
-	private String longitude, latitude, location, hotel_name, title;
+	private String longitude, latitude, location, hotel_name, title, hotel_description;
 
 	private boolean hotel_active;
 
@@ -63,7 +63,7 @@ public class HotelOffer {
 	}
 
 	public HotelOffer(String image, String longitude, String latitude, String hotel_name, LocalDate expireDate,
-			String location, String title, boolean hotel_active, Users id_user, LocalDate startDate,
+			String location, String title, String hotel_description, boolean hotel_active, Users id_user, LocalDate startDate,
 			LocalDate endDate) {
 		this.image = image;
 		this.longitude = longitude;
@@ -72,6 +72,7 @@ public class HotelOffer {
 		this.expireDate = expireDate;
 		this.location = location;
 		this.title = title;
+		this.hotel_description = hotel_description;
 		this.hotel_active = hotel_active;
 		this.id_user = id_user;
 		this.startDate = startDate;
@@ -92,6 +93,14 @@ public class HotelOffer {
 
 	public void setPrice(Long price) {
 		this.price = price;
+	}
+
+	public String getHotel_description() {
+		return hotel_description;
+	}
+
+	public void setHotel_description(String hotel_description) {
+		this.hotel_description = hotel_description;
 	}
 
 	public Long getRating() {

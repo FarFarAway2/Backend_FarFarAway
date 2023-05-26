@@ -26,7 +26,7 @@ public class TravelOffer {
 
 	private Long price;
 
-	private String image, description, travel_name, transport;
+	private String image, travel_description, travel_name, transport;
 	@Column(name = "expire_date")
 	private LocalDate expireDate;
 	@Column(name = "travel_type")
@@ -66,11 +66,11 @@ public class TravelOffer {
 
 	}
 
-	public TravelOffer(Long price, String image, String description, String travel_name, String transport,
+	public TravelOffer(Long price, String image, String travel_description, String travel_name, String transport,
 			LocalDate expireDate, String travelType, String title, boolean travel_active, Users id_user,
 			String destination, LocalDate startDate, LocalDate endDate) {
 		this.image = image;
-		this.description = description;
+		this.travel_description = travel_description;
 		this.travel_name = travel_name;
 		this.transport = transport;
 		this.expireDate = expireDate;
@@ -106,12 +106,12 @@ public class TravelOffer {
 		this.image = image;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getTravel_Description() {
+		return travel_description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setTravel_Description(String travel_description) {
+		this.travel_description = travel_description;
 	}
 
 	public String getTravel_name() {
