@@ -44,7 +44,7 @@ public class TravelOfferController {
 		travelOfferSelected = travelOfferService.travelOfferXID(id);
 		travelOfferSelected.setPrice(travelOffer.getPrice());
 		travelOfferSelected.setImage(travelOffer.getImage());
-		travelOfferSelected.setDescription(travelOffer.getDescription());
+		travelOfferSelected.setTravel_Description(travelOffer.getTravel_Description());
 		travelOfferSelected.setTravel_name(travelOffer.getTravel_name());
 		travelOfferSelected.setTransport(travelOffer.getTransport());
 		travelOfferSelected.setExpire_date(travelOffer.getExpire_date());

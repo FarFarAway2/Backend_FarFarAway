@@ -53,6 +53,7 @@ public class HotelOfferController {
 		hotelOfferSelected.setLocation(hotelOffer.getLocation());
 		hotelOfferSelected.setHotel_name(hotelOffer.getHotel_name());
 		hotelOfferSelected.setTitle(hotelOffer.getTitle());
+		hotelOfferSelected.setHotel_description(hotelOffer.getHotel_description());
 		hotelOfferSelected.setHotel_active(hotelOffer.getHotel_active());
 		hotelOfferSelected.setId_user(hotelOffer.getId_user());
 
