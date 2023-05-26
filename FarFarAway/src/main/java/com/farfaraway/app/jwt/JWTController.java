@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,8 @@ import org.json.JSONObject;
 
 @RestController
 @RequiredArgsConstructor
+//@CrossOrigin(origins = "https://main.df7xyjdxqxvgb.amplifyapp.com/")
+@CrossOrigin(origins = "localhost:4200")
 @RequestMapping("/login")
 public class JWTController {
     private final JWTService jwtService;
