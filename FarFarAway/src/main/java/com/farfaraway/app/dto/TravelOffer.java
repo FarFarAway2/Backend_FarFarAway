@@ -78,6 +78,7 @@ public class TravelOffer {
 		this.title = title;
 		this.travel_active = travel_active;
 		this.id_user = id_user;
+		this.destination = destination;
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}

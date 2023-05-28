@@ -31,7 +31,7 @@ public class FarFarAwaySecurityConfig {
 	private static final String[] COMPANY_SECURED_URLs = {};
 
 	// OPEN URLs
-	private static final String[] UN_SECURED_URLs = { "/login/**", "/register/**", "/users/**", "/hoteloffers/**", "/traveloffers/**"  };
+	private static final String[] UN_SECURED_URLs = { "/login/**", "/register/**", "/traveloffers/**", "/hoteloffers/**" };
 
 	@Autowired
 	private JWTAuthenticationFilter authenticationFilter;
