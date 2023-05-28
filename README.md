@@ -159,11 +159,6 @@ These services encapsulate the business logic and communicate with the correspon
 
 ------------
 
-
-[ER Model and Relational Model](https://github.com/DracoBlasterZ/Backend_FarFarAway/blob/main/ModER_ModRel.jpg "ER Model and Relational Model")
-
-
-
 ### Class Diagram and Relational Models
 [https://github.com/FarFarAway2/Backend_FarFarAway/blob/main/ModER_ModRel.jpg](https://github.com/FarFarAway2/Backend_FarFarAway/blob/main/ModER_ModRel.jpg)
 ### Git Repositories
