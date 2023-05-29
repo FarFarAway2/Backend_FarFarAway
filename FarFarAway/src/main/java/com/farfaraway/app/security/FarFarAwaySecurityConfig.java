@@ -54,7 +54,8 @@ public class FarFarAwaySecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		return http.csrf().disable().authorizeHttpRequests().requestMatchers(UN_SECURED_URLs).permitAll().and()
+		return http.csrf().disable().authorizeHttpRequests().requestMatchers(UN_SECURED_URLs).permitAll().and().
+				cors().and()
 				.authorizeHttpRequests().requestMatchers(SECURED_URLs).hasAuthority("ADMIN").and()
 				.authorizeHttpRequests().requestMatchers(USER_SECURED_URLs).hasAuthority("USER").and()
 				.authorizeHttpRequests().requestMatchers(COMPANY_SECURED_URLs).hasAuthority("COMPANY").anyRequest()
