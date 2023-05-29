@@ -27,6 +27,7 @@ public class TravelOffer {
 	private Long price;
 
 	private String image, travel_description, travel_name, transport;
+	
 	@Column(name = "expire_date")
 	private LocalDate expireDate;
 	@Column(name = "travel_type")
@@ -35,12 +36,12 @@ public class TravelOffer {
 
 	private boolean travel_active;
 
-	private String destination;
-
 	@Column(name = "start_date")
 	private LocalDate startDate;
 	@Column(name = "end_date")
 	private LocalDate endDate;
+	
+	private String destination;
 
 	@OneToMany
 	@JoinColumn(name = "id_hotel")
