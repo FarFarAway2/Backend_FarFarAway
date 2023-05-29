@@ -14,13 +14,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.reactive.CorsWebFilter;
-import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 import com.farfaraway.app.jwt.JWTAuthenticationFilter;
-
-import io.jsonwebtoken.lang.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -73,18 +68,4 @@ public class FarFarAwaySecurityConfig {
 		return authConfig.getAuthenticationManager();
 	}
 	
-	@Bean
-    public CorsWebFilter corsWebFilter() {
-        CorsConfiguration corsConfig = new CorsConfiguration();
-        corsConfig.setAllowedOrigins(java.util.Arrays.asList("https://main.df7xyjdxqxvgb.amplifyapp.com"));
-        corsConfig.setAllowedMethods(java.util.Arrays.asList("GET", "POST"));
-        corsConfig.setMaxAge(8000L);
-        corsConfig.addAllowedHeader("*");
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", corsConfig);
-
-        return new CorsWebFilter(source);
-    }
-
 }

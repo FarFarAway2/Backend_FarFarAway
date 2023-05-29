@@ -15,8 +15,8 @@ import org.json.JSONObject;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 @RequestMapping("/login")
+@CrossOrigin(origins = "*")
 public class JWTController {
 	private final JWTService jwtService;
 	private final AuthenticationManager authenticationManager;
