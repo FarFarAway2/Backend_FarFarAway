@@ -1,3 +1,17 @@
+<div align="center">
+  <img src="https://github.com/FarFarAway2/Frontend_FarFarAway/blob/main/Logo_horizontal.png" alt="Imagen 1" style="width:300px; display: inline-block; margin: 30px;"/>
+  <img src="https://github.com/FarFarAway2/Frontend_FarFarAway/blob/main/tsystems.png" alt="Imagen 2" style="width:200px; display: inline-block; margin: 30px; margin"/>
+</div>
+<h1 align="center">Far Far Away by The Updates</span></h1>
+
+<h3>App name:<span> Far Far Away</span></h3>
+
+### Team members:
+#### Andrea Dal Pezzo
+#### Roger Gilgert
+#### Marc Sáez
+#### Alberto del Pozo
+
 # *Backend_FarFarAway*
 ##### Far Far Away is a web platform for thematic travel offers, focused on adventurous and medieval type experiences, among others. Its main objective is to provide users with a variety of travel options that match their specific interests and preferences.
 
@@ -149,6 +163,20 @@ These services encapsulate the business logic and communicate with the correspon
 
 ------------
 
+### Class Diagram and Relational Models
+[https://github.com/FarFarAway2/Backend_FarFarAway/blob/main/ModER_ModRel.jpg](https://github.com/FarFarAway2/Backend_FarFarAway/blob/main/ModER_ModRel.jpg)
+### Git Repositories
+#### Front-End Repository
+[https://github.com/FarFarAway2/Frontend_FarFarAway](https://github.com/FarFarAway2/Frontend_FarFarAway)
+#### Back-End Repository
+[https://github.com/FarFarAway2/Backend_FarFarAway](https://github.com/FarFarAway2/Backend_FarFarAway)
+#### Trello Panel
+[https://trello.com/b/RCYcJzCn/ofertas](https://trello.com/b/RCYcJzCn/ofertas)
 
-[ER Model and Relational Model](https://github.com/DracoBlasterZ/Backend_FarFarAway/blob/main/ModER_ModRel.jpg "ER Model and Relational Model")
+
+
+
+
+
+
 
