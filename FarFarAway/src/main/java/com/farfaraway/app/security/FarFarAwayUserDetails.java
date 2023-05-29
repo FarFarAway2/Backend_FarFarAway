@@ -24,11 +24,15 @@ public class FarFarAwayUserDetails implements UserDetails {
 
     public FarFarAwayUserDetails(Users user) {
     	userName = user.getEmail();
-        password = user.getUser_password();    
-        authorities = Arrays.stream(user.getRole_string()
+        password = user.getUser_password(); 
+        authorities = Arrays.stream("ADMIN"
                 .split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
+//        authorities = Arrays.stream(user.getRole_string()
+//                .split(","))
+//                .map(SimpleGrantedAuthority::new)
+//                .collect(Collectors.toList());
     }
     
     
@@ -39,7 +43,7 @@ public class FarFarAwayUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return password;
+    	return password;
     }
 
     @Override
