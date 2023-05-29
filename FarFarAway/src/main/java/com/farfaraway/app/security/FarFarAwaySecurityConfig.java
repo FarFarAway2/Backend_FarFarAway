@@ -31,7 +31,8 @@ public class FarFarAwaySecurityConfig {
 	private static final String[] COMPANY_SECURED_URLs = {};
 
 	// OPEN URLs
-	private static final String[] UN_SECURED_URLs = { "/login/**", "/register/**", "/traveloffers/**", "/hoteloffers/**" , "/users/**"};
+	private static final String[] UN_SECURED_URLs = { "/login/**", "/register/**", "/traveloffers/**",
+			"/hoteloffers/**", "/users/**" };
 
 	@Autowired
 	private JWTAuthenticationFilter authenticationFilter;
@@ -54,8 +55,8 @@ public class FarFarAwaySecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		return http.csrf().disable().authorizeHttpRequests().requestMatchers(UN_SECURED_URLs).permitAll().and()
-				.authorizeHttpRequests().requestMatchers(SECURED_URLs).hasAuthority("ADMIN").and()
+		return http.csrf().disable().authorizeHttpRequests().requestMatchers(UN_SECURED_URLs).permitAll().and().cors()
+				.and().authorizeHttpRequests().requestMatchers(SECURED_URLs).hasAuthority("ADMIN").and()
 				.authorizeHttpRequests().requestMatchers(USER_SECURED_URLs).hasAuthority("USER").and()
 				.authorizeHttpRequests().requestMatchers(COMPANY_SECURED_URLs).hasAuthority("COMPANY").anyRequest()
 				.authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
