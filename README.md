@@ -172,6 +172,8 @@ These services encapsulate the business logic and communicate with the correspon
 [https://github.com/FarFarAway2/Backend_FarFarAway](https://github.com/FarFarAway2/Backend_FarFarAway)
 #### Trello Panel
 [https://trello.com/b/RCYcJzCn/ofertas](https://trello.com/b/RCYcJzCn/ofertas)
+#### End Points Backend
+[https://github.com/FarFarAway2/Backend_FarFarAway/blob/main/FarFarAway.postman_collection.json](https://github.com/FarFarAway2/Backend_FarFarAway/blob/main/FarFarAway.postman_collection.json)
 
 
 
