@@ -8,7 +8,7 @@
 
 ### Team members:
 #### Andrea Dal Pezzo
-#### Roger Gilgert
+#### Roger Gibert
 #### Marc Sáez
 #### Alberto del Pozo
 
